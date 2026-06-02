@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git --version)",
+      "Bash(git config *)",
+      "Bash(npm --version)",
+      "Bash(npm install *)",
+      "Bash(hexo init *)",
+      "Bash(cp *)",
+      "Bash(npx hexo *)",
+      "Bash(git init *)",
+      "Bash(gh auth *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
+    ]
+  }
+}
