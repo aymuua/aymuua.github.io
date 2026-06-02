@@ -11,7 +11,10 @@
       "Bash(git init *)",
       "Bash(gh auth *)",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(winget install *)",
+      "Bash(curl -sL \"https://github.com/cli/cli/releases/latest/download/gh_2.62.0_windows_amd64.zip\" -o /tmp/gh.zip)",
+      "Bash(unzip -o /tmp/gh.zip -d /tmp/gh_install)"
     ]
   }
 }
