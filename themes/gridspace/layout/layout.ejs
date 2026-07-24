@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="<%= config.language || 'zh-CN' %>">
+  <head>
+    <%- partial('_partial/head') %>
+  </head>
+  <body class="site-body layout-<%= page.layout || 'index' %>">
+    <a class="skip-link" href="#main-content">跳到正文</a>
+    <div class="site-frame">
+      <%- partial('_partial/header') %>
+      <main id="main-content">
+        <%- body %>
+      </main>
+      <%- partial('_partial/footer') %>
+    </div>
+    <div class="reading-progress" aria-hidden="true">
+      <span data-reading-progress></span>
+    </div>
+    <script src="<%- url_for('/js/site.js') %>" defer></script>
+  </body>
+</html>

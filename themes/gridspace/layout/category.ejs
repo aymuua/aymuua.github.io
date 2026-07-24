@@ -1,0 +1,17 @@
+<section class="archive-page">
+  <header class="archive-hero grid-guides">
+    <p data-reveal>(CATEGORY) / INDEX</p>
+    <h1 data-reveal><%= page.category %></h1>
+    <p class="archive-count" data-reveal>
+      <strong><%= page.posts.length %></strong>
+      <span>Published<br>notes</span>
+    </p>
+  </header>
+  <div class="archive-content">
+    <div class="section-heading" data-reveal>
+      <p><span>ALL</span> / IN THIS CATEGORY</p>
+      <p><%= page.category %></p>
+    </div>
+    <%- partial('_partial/post-list') %>
+  </div>
+</section>

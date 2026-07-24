@@ -1,0 +1,15 @@
+<%
+  const listedPosts = page.posts && page.posts.toArray
+    ? page.posts.toArray()
+    : site.posts.toArray();
+%>
+<div class="post-index-list">
+  <% listedPosts.forEach(function(post, index) { %>
+    <a class="post-index-row" href="<%- url_for(post.path) %>" data-reveal>
+      <span class="post-index-number"><%= String(index + 1).padStart(2, '0') %></span>
+      <span class="post-index-date"><%= date(post.date, 'YYYY.MM.DD') %></span>
+      <span class="post-index-title"><%= post.title %></span>
+      <span class="post-index-arrow" aria-hidden="true">↗</span>
+    </a>
+  <% }); %>
+</div>
