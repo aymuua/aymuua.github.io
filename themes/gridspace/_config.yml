@@ -1,0 +1,45 @@
+menu:
+  - label: 首页
+    index: "01"
+    url: /
+  - label: 文章
+    index: "02"
+    url: /archives/
+  - label: 关于我
+    index: "03"
+    url: /about/
+
+hero:
+  line_one: Aymuua
+  line_two: jasmine‘s Space
+  note: 记录机器人、机构与飞行器从想法走向系统的过程。
+
+topics:
+  - index: "01"
+    name: 机器人学基础
+    english: Robotics Foundations
+    description: 坐标变换、运动学、雅可比矩阵、奇异性与轨迹规划。
+    status: 持续更新
+  - index: "02"
+    name: 并联机器人
+    english: Parallel Robots
+    description: 以 3-RRR 为主线，记录构型、工作空间、刚度与控制。
+    status: 研究主线
+  - index: "03"
+    name: 变刚度系统
+    english: Variable Stiffness
+    description: 从模块机理、材料与驱动，一直追踪到整机性能。
+    status: 研究主线
+  - index: "04"
+    name: 空中机器人
+    english: Aerial Robotics
+    description: 无人机系统设计，以及仿生跳跃、栖附和检测任务。
+    status: 专题笔记
+  - index: "05"
+    name: 工程实现
+    english: Build Logs
+    description: MATLAB、STM32、CAN、电机与传感器的真实调试记录。
+    status: 实践记录
+
+github_url: https://github.com/aymuua
+footer_note: Independent research notes on robotics and mechanical systems.

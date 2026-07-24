@@ -1,0 +1,141 @@
+<%
+  const allPosts = site.posts.toArray();
+  const featured = allPosts.length ? allPosts[0] : null;
+  const hero = theme.hero || {};
+%>
+
+<section class="home-hero grid-guides">
+  <div class="hero-label" data-reveal>
+    <span>(00)</span>
+    <span>PERSONAL RESEARCH SPACE</span>
+  </div>
+
+  <div class="hero-title-wrap">
+    <h1 class="hero-title" aria-label="<%= config.title %>">
+      <span data-reveal><%= hero.line_one %></span>
+      <span data-reveal><%= hero.line_two %></span>
+    </h1>
+    <p class="hero-edition" aria-hidden="true">EST.<br>2026</p>
+  </div>
+
+  <div class="hero-note" data-reveal>
+    <p><%= hero.note %></p>
+    <span>ROBOTICS · MECHANISMS · FLIGHT</span>
+  </div>
+
+  <div class="kinematic-figure" data-reveal aria-label="坐标变换抽象图形">
+    <svg viewBox="0 0 720 520" role="img" aria-labelledby="kinematic-title kinematic-desc">
+      <title id="kinematic-title">机器人坐标变换图形</title>
+      <desc id="kinematic-desc">两个坐标系、连杆和齐次变换矩阵构成的抽象示意图。</desc>
+      <defs>
+        <pattern id="micro-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+          <path d="M 32 0 L 0 0 0 32" class="svg-grid-line"></path>
+        </pattern>
+      </defs>
+      <rect width="720" height="520" class="svg-field"></rect>
+      <rect width="720" height="520" fill="url(#micro-grid)"></rect>
+      <g class="svg-axis axis-a">
+        <line x1="128" y1="368" x2="296" y2="368"></line>
+        <line x1="128" y1="368" x2="128" y2="200"></line>
+        <circle cx="128" cy="368" r="8"></circle>
+        <text x="304" y="374">xA</text>
+        <text x="116" y="190">yA</text>
+      </g>
+      <g class="svg-axis axis-b" transform="translate(476 204) rotate(-24)">
+        <line x1="0" y1="0" x2="142" y2="0"></line>
+        <line x1="0" y1="0" x2="0" y2="-142"></line>
+        <circle cx="0" cy="0" r="8"></circle>
+        <text x="150" y="6">xB</text>
+        <text x="-10" y="-154">yB</text>
+      </g>
+      <path d="M128 368 C240 310 346 246 476 204" class="svg-motion"></path>
+      <circle cx="292" cy="286" r="13" class="svg-joint"></circle>
+      <circle cx="476" cy="204" r="13" class="svg-joint"></circle>
+      <text x="492" y="310" class="svg-matrix">Tᴬʙ = [ R  t ]</text>
+      <text x="562" y="344" class="svg-matrix">[ 0  1 ]</text>
+      <text x="32" y="48" class="svg-caption">FRAME TRANSFORMATION / 01</text>
+      <text x="32" y="488" class="svg-caption">A → B / POSITION + ORIENTATION</text>
+    </svg>
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">
+    <span>SCROLL TO INDEX</span>
+    <i></i>
+  </div>
+</section>
+
+<section class="section-block latest-section">
+  <div class="section-heading" data-reveal>
+    <p><span>01</span> / LATEST NOTE</p>
+    <p>最新发布</p>
+  </div>
+
+  <% if (featured) { %>
+    <a class="featured-post" href="<%- url_for(featured.path) %>" data-reveal>
+      <div class="featured-meta">
+        <span><%= date(featured.date, 'YYYY.MM.DD') %></span>
+        <span>
+          <% if (featured.categories && featured.categories.length) { %>
+            <%= featured.categories.toArray()[0].name %>
+          <% } else { %>
+            RESEARCH NOTE
+          <% } %>
+        </span>
+      </div>
+      <div class="featured-copy">
+        <p class="featured-eyebrow">ARTICLE / <%= String(allPosts.length).padStart(2, '0') %></p>
+        <h2><%= featured.title %></h2>
+        <p><%= featured.description || strip_html(featured.excerpt).replace(/\s+/g, ' ').trim() %></p>
+      </div>
+      <div class="featured-symbol" aria-hidden="true">
+        <span>R</span>
+        <svg viewBox="0 0 160 160">
+          <circle cx="80" cy="80" r="57"></circle>
+          <path d="M80 23v114M23 80h114M40 40l80 80M120 40l-80 80"></path>
+          <circle cx="80" cy="80" r="10"></circle>
+        </svg>
+      </div>
+      <span class="featured-action">阅读全文 <i aria-hidden="true">↗</i></span>
+    </a>
+  <% } %>
+</section>
+
+<section class="section-block topics-section">
+  <div class="section-heading" data-reveal>
+    <p><span>02</span> / RESEARCH INDEX</p>
+    <p>内容方向</p>
+  </div>
+
+  <div class="topic-grid">
+    <% (theme.topics || []).forEach(function(topic) { %>
+      <article class="topic-card" data-reveal>
+        <div class="topic-card-top">
+          <span>(<%= topic.index %>)</span>
+          <span><%= topic.status %></span>
+        </div>
+        <div>
+          <p class="topic-english"><%= topic.english %></p>
+          <h3><%= topic.name %></h3>
+          <p class="topic-description"><%= topic.description %></p>
+        </div>
+      </article>
+    <% }); %>
+  </div>
+</section>
+
+<section class="section-block writing-section">
+  <div class="section-heading" data-reveal>
+    <p><span>03</span> / ALL WRITING</p>
+    <p><%= allPosts.length %> 篇文章</p>
+  </div>
+  <%- partial('_partial/post-list') %>
+</section>
+
+<section class="closing-statement grid-guides" data-reveal>
+  <p class="closing-index">(04) / PRINCIPLE</p>
+  <p class="closing-copy">
+    <span>Make the mechanism</span>
+    <span>understandable.</span>
+  </p>
+  <p class="closing-note">把复杂系统拆成可以检查的坐标、结构、公式与代码。</p>
+</section>

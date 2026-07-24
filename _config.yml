@@ -5,8 +5,14 @@
 # Site
 title: Aymuuajasmine‘s Space
 subtitle: ''
-description: ''
+description: 记录机器人学、机构设计、变刚度系统与空中机器人的研究和实践。
 keywords:
+  - 机器人学
+  - 机构设计
+  - 并联机器人
+  - 变刚度
+  - 无人机
+  - 嵌入式开发
 author: aymuua
 language: zh-CN
 timezone: ''
@@ -105,7 +111,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: gridspace
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
