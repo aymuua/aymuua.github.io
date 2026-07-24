@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Aymuua's Blog
+title: Aymuuajasmine‘s Space
 subtitle: ''
 description: ''
 keywords:
@@ -54,6 +54,15 @@ prismjs:
   preprocess: true
   line_number: true
   tab_replace: ''
+
+# Mathematics
+mathjax:
+  tags: none
+  single_dollars: true
+  append_css: true
+  every_page: false
+  packages:
+    - ams
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
