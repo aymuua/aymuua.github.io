@@ -147,7 +147,7 @@ figure {
 
 .brand-mark {
   color: var(--signal);
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.7rem;
   letter-spacing: 0.04em;
 }
@@ -164,7 +164,7 @@ figure {
   padding: 0 1.4rem;
   border-right: 1px solid var(--line);
   color: var(--muted);
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.58rem;
   line-height: 1.55;
   letter-spacing: 0.07em;
@@ -194,7 +194,7 @@ figure {
 
 .nav-link span {
   color: var(--muted);
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.58rem;
 }
 
@@ -248,7 +248,7 @@ figure {
   align-items: center;
   justify-content: space-between;
   padding-bottom: clamp(2rem, 4vw, 4.5rem);
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.63rem;
   letter-spacing: 0.07em;
 }
@@ -287,7 +287,7 @@ figure {
   justify-self: end;
   margin: 0;
   color: var(--muted);
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.6rem;
   line-height: 1.5;
   letter-spacing: 0.08em;
@@ -312,7 +312,7 @@ figure {
 
 .hero-note span {
   color: var(--muted);
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.58rem;
   letter-spacing: 0.08em;
 }
@@ -348,7 +348,7 @@ figure {
 
 .svg-axis text {
   fill: var(--ink);
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 20px;
 }
 
@@ -386,7 +386,7 @@ figure {
 
 .svg-caption {
   fill: var(--muted);
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 12px;
   letter-spacing: 0.08em;
 }
@@ -398,7 +398,7 @@ figure {
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.55rem;
   letter-spacing: 0.08em;
   transform: rotate(90deg) translateX(100%);
@@ -446,7 +446,7 @@ figure {
   margin-bottom: clamp(2.5rem, 5vw, 5rem);
   padding-bottom: 0.85rem;
   border-bottom: 1px solid var(--line);
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.62rem;
   letter-spacing: 0.07em;
 }
@@ -506,7 +506,7 @@ figure {
   justify-content: space-between;
   padding: 1.5rem;
   border-right: 1px solid currentColor;
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.6rem;
   letter-spacing: 0.05em;
 }
@@ -522,7 +522,7 @@ figure {
 .featured-eyebrow {
   margin-bottom: 2rem;
   color: var(--signal);
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.62rem;
   letter-spacing: 0.07em;
 }
@@ -662,7 +662,7 @@ figure {
   align-items: center;
   justify-content: space-between;
   color: rgba(241, 239, 233, 0.58);
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.58rem;
   letter-spacing: 0.07em;
 }
@@ -674,7 +674,7 @@ figure {
 .topic-english {
   margin-bottom: 0.55rem;
   color: var(--signal);
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.61rem;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -727,14 +727,14 @@ figure {
 .post-index-number {
   grid-column: 1 / span 1;
   color: var(--signal);
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.62rem;
 }
 
 .post-index-date {
   grid-column: 2 / span 2;
   color: var(--muted);
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.62rem;
 }
 
@@ -773,7 +773,7 @@ figure {
 .closing-index {
   grid-column: 1 / span 3;
   color: var(--signal);
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.62rem;
   letter-spacing: 0.07em;
 }
@@ -821,7 +821,7 @@ figure {
   grid-column: 1 / span 2;
   margin: 0;
   color: var(--signal);
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.62rem;
   letter-spacing: 0.07em;
 }
@@ -898,7 +898,7 @@ figure {
   display: flex;
   grid-column: 1 / -1;
   justify-content: space-between;
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.62rem;
   letter-spacing: 0.07em;
 }
@@ -940,7 +940,7 @@ figure {
   padding: 0.85rem 0.65rem;
   border-right: 1px solid var(--line);
   color: var(--muted);
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.56rem;
   line-height: 1.5;
   letter-spacing: 0.04em;
@@ -977,7 +977,7 @@ figure {
 .aside-label {
   margin-bottom: 1.25rem;
   color: var(--muted);
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.57rem;
   letter-spacing: 0.08em;
 }
@@ -1009,7 +1009,7 @@ figure {
 
 .article-toc a::before {
   color: var(--signal);
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.58rem;
   content: attr(data-index);
 }
@@ -1034,7 +1034,7 @@ figure {
   width: fit-content;
   margin-bottom: 0.5rem;
   color: var(--muted);
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.61rem;
 }
 
@@ -1080,7 +1080,7 @@ figure {
   display: block;
   margin-bottom: 1rem;
   color: var(--signal);
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.58rem;
   font-weight: 400;
   letter-spacing: 0.08em;
@@ -1136,7 +1136,7 @@ figure {
 
 .prose li::marker {
   color: var(--signal);
-  font-family: var(--mono);
+  font-family: var(--sans);
 }
 
 .prose blockquote {
@@ -1183,7 +1183,7 @@ figure {
 .prose th {
   color: var(--paper);
   background: var(--ink);
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.67rem;
   font-weight: 500;
   letter-spacing: 0.04em;
@@ -1271,7 +1271,7 @@ figure {
 .article-footer > p {
   margin-bottom: 3rem;
   color: var(--signal);
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.6rem;
   letter-spacing: 0.08em;
 }
@@ -1304,7 +1304,7 @@ figure {
 
 .article-pagination span {
   color: var(--muted);
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.6rem;
 }
 
@@ -1332,7 +1332,7 @@ figure {
 .standard-page-hero > p {
   grid-column: 1 / -1;
   color: var(--signal);
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.62rem;
   letter-spacing: 0.07em;
 }
@@ -1366,7 +1366,7 @@ figure {
 
 .archive-count span {
   color: var(--muted);
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 0.55rem;
   line-height: 1.4;
   letter-spacing: 0.05em;
