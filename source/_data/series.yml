@@ -1,0 +1,34 @@
+- id: robotics-foundations
+  index: "01"
+  name: 机器人学基础
+  english: Robotics Foundations
+  description: 从坐标系到轨迹规划，建立机器人学必备的数学语言。
+  status: 持续更新
+
+- id: parallel-robots
+  index: "02"
+  name: 并联机器人
+  english: Parallel Robots
+  description: 以 3-RRR 为主线，完整记录构型分析、工作空间、刚度与控制。
+  status: 研究主线
+
+- id: variable-stiffness
+  index: "03"
+  name: 变刚度系统
+  english: Variable Stiffness
+  description: 从模块机理、材料与驱动，追踪到整机性能的设计判断。
+  status: 研究主线
+
+- id: aerial-robotics
+  index: "04"
+  name: 空中机器人
+  english: Aerial Robotics
+  description: 无人机系统设计，以及仿生跳跃、栖附和检测任务的方案解析。
+  status: 专题笔记
+
+- id: build-logs
+  index: "05"
+  name: 工程实现
+  english: Build Logs
+  description: MATLAB、STM32、CAN、电机与传感器的真实调试记录。
+  status: 实践记录

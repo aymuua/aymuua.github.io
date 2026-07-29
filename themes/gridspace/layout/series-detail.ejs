@@ -1,0 +1,44 @@
+<%
+  const s = page.series || {};
+  const seriesPosts = page.posts || [];
+%>
+
+<section class="archive-page">
+  <header class="archive-hero grid-guides">
+    <p data-reveal>(SERIES <%= s.index %>) / DETAIL</p>
+    <h1 data-reveal><%= s.name %></h1>
+    <p class="series-hero-deck" data-reveal><%= s.description %></p>
+    <p class="archive-count" data-reveal>
+      <strong><%= seriesPosts.length %></strong>
+      <span>Published<br>notes</span>
+    </p>
+  </header>
+
+  <div class="archive-content">
+    <div class="section-heading" data-reveal>
+      <p><span>SERIES <%= s.index %></span> / <%= s.english.toUpperCase() %></p>
+      <p><%= s.status %></p>
+    </div>
+
+    <% if (seriesPosts.length) { %>
+      <div class="series-post-list">
+        <% seriesPosts.forEach(function(post, i) { %>
+          <a class="series-post-row" href="<%- url_for(post.path) %>" data-reveal>
+            <span class="series-post-number"><%= String(i + 1).padStart(2, '0') %></span>
+            <span class="series-post-date"><%= date(post.date, 'YYYY.MM.DD') %></span>
+            <span class="series-post-title"><%= post.title %></span>
+            <span class="series-post-arrow" aria-hidden="true">↗</span>
+          </a>
+        <% }); %>
+      </div>
+    <% } else { %>
+      <div class="series-empty" data-reveal>
+        <p>这个系列还没有文章，敬请期待。</p>
+      </div>
+    <% } %>
+
+    <div class="series-back" data-reveal>
+      <a href="<%- url_for('/series/') %>">← 返回专题总览</a>
+    </div>
+  </div>
+</section>

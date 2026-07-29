@@ -1,0 +1,17 @@
+<section class="standard-page">
+  <header class="standard-page-hero grid-guides">
+    <p data-reveal>(PAGE) / <%= page.path.replace(/\/.*$/, '').toUpperCase() || 'INDEX' %></p>
+    <h1 data-reveal><%= page.title %></h1>
+  </header>
+  <% if (strip_html(page.content || '').trim()) { %>
+    <div class="standard-page-content prose" data-reveal>
+      <%- page.content %>
+    </div>
+  <% } else { %>
+    <div class="empty-page-space" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  <% } %>
+</section>

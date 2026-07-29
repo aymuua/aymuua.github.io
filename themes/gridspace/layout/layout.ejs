@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="<%= config.language || 'zh-CN' %>">
+  <head>
+    <%- partial('_partial/head') %>
+  </head>
+  <body class="site-body layout-<%= page.layout || 'index' %>">
+    <a class="skip-link" href="#main-content">跳到正文</a>
+    <div class="site-frame">
+      <%- partial('_partial/header') %>
+      <main id="main-content">
+        <%- body %>
+      </main>
+      <%- partial('_partial/footer') %>
+    </div>
+    <div class="reading-progress" aria-hidden="true">
+      <span data-reading-progress></span>
+    </div>
+
+    <!-- Search overlay -->
+    <div class="search-overlay" data-search-overlay aria-hidden="true">
+      <div class="search-panel">
+        <div class="search-header">
+          <input
+            class="search-input"
+            type="text"
+            placeholder="搜索文章…"
+            data-search-input
+            autocomplete="off"
+          >
+          <button class="search-close" type="button" aria-label="关闭搜索" data-search-close>
+            <span>关闭</span>
+            <span aria-hidden="true">✕</span>
+          </button>
+        </div>
+        <div class="search-results" data-search-results>
+          <p class="search-hint">输入关键词开始搜索</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="<%- gridspace_asset_url('/js/site.js') %>" defer></script>
+  </body>
+</html>

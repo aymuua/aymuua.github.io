@@ -1,0 +1,17 @@
+<section class="archive-page">
+  <header class="archive-hero grid-guides">
+    <p data-reveal>(02) / ARCHIVE</p>
+    <h1 data-reveal>Writing<br>Index</h1>
+    <p class="archive-count" data-reveal>
+      <strong><%= site.posts.length %></strong>
+      <span>Published<br>notes</span>
+    </p>
+  </header>
+  <div class="archive-content">
+    <div class="section-heading" data-reveal>
+      <p><span>ALL</span> / CHRONOLOGICAL</p>
+      <p>按发布时间排序</p>
+    </div>
+    <%- partial('_partial/post-list') %>
+  </div>
+</section>

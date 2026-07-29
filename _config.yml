@@ -3,10 +3,16 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Aymuua's Blog
+title: Aymuuajasmine's Space
 subtitle: ''
-description: ''
+description: 记录机器人学、机构设计、变刚度系统与空中机器人的研究和实践。
 keywords:
+  - 机器人学
+  - 机构设计
+  - 并联机器人
+  - 变刚度
+  - 无人机
+  - 嵌入式开发
 author: aymuua
 language: zh-CN
 timezone: ''
@@ -55,6 +61,15 @@ prismjs:
   line_number: true
   tab_replace: ''
 
+# Mathematics
+mathjax:
+  tags: none
+  single_dollars: true
+  append_css: true
+  every_page: false
+  packages:
+    - ams
+
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
@@ -96,7 +111,15 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: gridspace
+
+# Search
+## hexo-generator-searchdb
+search:
+  path: search.json
+  field: all
+  content: true
+  format: striptags
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
