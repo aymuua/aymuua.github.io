@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f1efe9">
+<meta name="color-scheme" content="light">
+<title>机器人学基础（一）：从坐标系到齐次变换矩阵 — Aymuuajasmine&#39;s Space</title>
+<meta name="description" content="面向初学者的机器人学入门教程，从连杆、关节和自由度出发，逐步理解坐标系、旋转矩阵与齐次变换矩阵。">
+<meta name="author" content="aymuua">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器人学基础（一）：从坐标系到齐次变换矩阵 — Aymuuajasmine&#39;s Space">
+<meta property="og:description" content="面向初学者的机器人学入门教程，从连杆、关节和自由度出发，逐步理解坐标系、旋转矩阵与齐次变换矩阵。">
+<meta property="og:url" content="https://aymuua.github.io/2026/07/24/robotics-basics-homogeneous-transformation/">
+<meta property="og:site_name" content="Aymuuajasmine&#39;s Space">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://aymuua.github.io/2026/07/24/robotics-basics-homogeneous-transformation/">
+<link rel="icon" href="/icons/favicon.svg?v=fe67b583fb1b" type="image/svg+xml">
+<link rel="stylesheet" href="/css/style.css?v=981646cce44d">
+<script>document.documentElement.classList.add('js');</script>
+
+  <meta name="generator" content="Hexo 7.3.0"></head>
+  <body class="site-body layout-post">
+    <a class="skip-link" href="#main-content">跳到正文</a>
+    <div class="site-frame">
+      <header class="site-header" data-site-header>
+  <div class="header-grid">
+    <a class="brand" href="/" aria-label="Aymuuajasmine&#39;s Space 首页">
+      <span class="brand-mark" aria-hidden="true">A—J</span>
+      <span class="brand-name">Aymuuajasmine&#39;s Space</span>
+    </a>
+
+    <div class="header-coordinate" aria-label="站点版本">
+      <span>RESEARCH INDEX</span>
+      <span>VOL. 01 / 2026</span>
+    </div>
+
+    <button class="search-toggle" type="button" aria-label="搜索" data-search-toggle>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </button>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" data-menu-toggle>
+      <span>菜单</span>
+      <span class="menu-toggle-lines" aria-hidden="true"><i></i><i></i></span>
+    </button>
+
+    <nav class="site-navigation" id="site-navigation" aria-label="主导航" data-site-navigation>
+      
+        <a class="nav-link" href="/">
+          <span>01</span>
+          首页
+        </a>
+      
+        <a class="nav-link" href="/series/">
+          <span>02</span>
+          专题
+        </a>
+      
+        <a class="nav-link" href="/categories/">
+          <span>03</span>
+          分类
+        </a>
+      
+        <a class="nav-link" href="/archives/">
+          <span>04</span>
+          归档
+        </a>
+      
+        <a class="nav-link" href="/about/">
+          <span>05</span>
+          关于
+        </a>
+      
+    </nav>
+  </div>
+</header>
+
+      <main id="main-content">
+        
+
+<article class="article-page">
+  <header class="article-hero grid-guides">
+    <div class="article-kicker" data-reveal>
+      <span>(NOTE)</span>
+      <span>机器人学</span>
+    </div>
+    <h1 data-reveal>机器人学基础（一）：从坐标系到齐次变换矩阵</h1>
+    
+      <p class="article-deck" data-reveal>面向初学者的机器人学入门教程，从连杆、关节和自由度出发，逐步理解坐标系、旋转矩阵与齐次变换矩阵。</p>
+    
+    <div class="article-hero-meta" data-reveal>
+      <span>Published<br><strong>2026.07.24</strong></span>
+      <span>Reading time<br><strong>7 min</strong></span>
+      <span>Language<br><strong>ZH—CN</strong></span>
+    </div>
+  </header>
+
+  <div class="article-grid">
+    <aside class="article-aside">
+      <div class="article-aside-inner">
+        <p class="aside-label">ON THIS PAGE</p>
+        <nav class="article-toc" aria-label="文章目录" data-toc>
+          <ol data-toc-list></ol>
+        </nav>
+
+        
+          <div class="article-tags">
+            <p class="aside-label">TAGS</p>
+            
+              <a href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6/"># 机器人学</a>
+            
+              <a href="/tags/%E8%BF%90%E5%8A%A8%E5%AD%A6/"># 运动学</a>
+            
+              <a href="/tags/%E9%BD%90%E6%AC%A1%E5%8F%98%E6%8D%A2/"># 齐次变换</a>
+            
+          </div>
+        
+      </div>
+    </aside>
+
+    <div class="article-content prose" id="article-content">
+      <p>当我们说“让机器人末端移动到目标位置”时，至少要回答两个问题：目标位置是相对于谁描述的？机器人又该如何把不同坐标系下的信息统一起来？</p>
+<p>机器人学中的位置、姿态、运动学和控制都建立在同一套数学语言上：<strong>坐标系与坐标变换</strong>。本文从最基本的连杆、关节和自由度讲起，最后得到机器人学中最常用的工具之一——齐次变换矩阵。</p>
+<span id="more"></span>
+
+<h2 id="1-先认识机器人的机械结构"><a href="#1-先认识机器人的机械结构" class="headerlink" title="1. 先认识机器人的机械结构"></a>1. 先认识机器人的机械结构</h2><p>以常见的机械臂为例，它可以先被简化为三个基本概念：</p>
+<ul>
+<li><strong>连杆（Link）</strong>：可以近似看作不会变形的刚体。</li>
+<li><strong>关节（Joint）</strong>：连接相邻连杆，并允许它们产生相对运动。</li>
+<li><strong>末端执行器（End Effector）</strong>：安装在机械臂末端、直接完成任务的部分，例如夹爪、焊枪或康复机器人的手柄。</li>
+</ul>
+<p>入门阶段最常见的关节有两类：</p>
+<table>
+<thead>
+<tr>
+<th>关节</th>
+<th>允许的运动</th>
+<th>常用变量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>转动关节（Revolute Joint）</td>
+<td>绕关节轴旋转</td>
+<td>角度 <span class="math-inline">$\theta$</span></td>
+</tr>
+<tr>
+<td>移动关节（Prismatic Joint）</td>
+<td>沿关节轴平移</td>
+<td>位移 <span class="math-inline">$d$</span></td>
+</tr>
+</tbody></table>
+<p>一个关节变量通常对应一个<strong>自由度（Degree of Freedom，DOF）</strong>。例如，一个具有三个独立转动关节的平面机械臂通常具有三个自由度。</p>
+<p>自由度告诉我们机器人“能独立运动多少个方向”，但还不能直接告诉我们末端在哪里。要描述位置，首先需要建立坐标系。</p>
+<h2 id="2-为什么必须建立坐标系"><a href="#2-为什么必须建立坐标系" class="headerlink" title="2. 为什么必须建立坐标系"></a>2. 为什么必须建立坐标系</h2><p>假设桌面上有一个点 <span class="math-inline">$P$</span>。只说“点 <span class="math-inline">$P$</span> 位于 <span class="math-inline">$(1,2,0)$</span>”是不完整的，因为同一个点在不同坐标系中的坐标通常不同。</p>
+<p>机器人系统中常见的坐标系包括：</p>
+<ul>
+<li><strong>世界坐标系</strong>：描述整个工作环境。</li>
+<li><strong>基座坐标系</strong>：固定在机器人底座上。</li>
+<li><strong>关节坐标系</strong>：固定在各级关节或连杆上。</li>
+<li><strong>末端坐标系</strong>：固定在末端执行器上。</li>
+<li><strong>工具坐标系</strong>：根据夹爪、探头等具体工具定义。</li>
+</ul>
+<p>本文采用以下约定：</p>
+<ol>
+<li>使用右手坐标系；</li>
+<li>使用列向量；</li>
+<li><span class="math-inline">$\mathbf{p}^{A}$</span> 表示同一个点 <span class="math-inline">$P$</span> 在坐标系 <span class="math-inline">$\{A\}$</span> 中的坐标。</li>
+</ol>
+<p>于是，一个三维点可以写成</p>
+<div class="math-display">$$
+\mathbf{p}^{A}=
+\begin{bmatrix}
+x^{A} \\
+y^{A} \\
+z^{A}
+\end{bmatrix}.
+$$</div>
+<p>上标 <span class="math-inline">$A$</span> 不是乘方，而是在说明“这组坐标是由坐标系 <span class="math-inline">$\{A\}$</span> 观察得到的”。</p>
+<h2 id="3-姿态：一个坐标系朝向哪里"><a href="#3-姿态：一个坐标系朝向哪里" class="headerlink" title="3. 姿态：一个坐标系朝向哪里"></a>3. 姿态：一个坐标系朝向哪里</h2><p>位置描述“原点在哪里”，姿态描述“坐标轴朝向哪里”。</p>
+<p>假设坐标系 <span class="math-inline">$\{B\}$</span> 的原点与 <span class="math-inline">$\{A\}$</span> 重合，但 <span class="math-inline">$\{B\}$</span> 相对 <span class="math-inline">$\{A\}$</span> 发生了旋转。此时，同一个向量在两个坐标系中的数值可以通过旋转矩阵联系起来：</p>
+<div class="math-display">$$
+\mathbf{p}^{A}=\mathbf{R}^{A}_{B}\mathbf{p}^{B}.
+$$</div>
+<p>这里，<span class="math-inline">$\mathbf{R}^{A}_{B}$</span> 的含义是：<strong>把在坐标系 <span class="math-inline">$\{B\}$</span> 中表示的坐标，转换为在坐标系 <span class="math-inline">$\{A\}$</span> 中的表示。</strong></p>
+<h3 id="3-1-从二维旋转开始"><a href="#3-1-从二维旋转开始" class="headerlink" title="3.1 从二维旋转开始"></a>3.1 从二维旋转开始</h3><p>在平面内，将坐标系绕原点逆时针旋转 <span class="math-inline">$\theta$</span>，对应的旋转矩阵为</p>
+<div class="math-display">$$
+\mathbf{R}(\theta)=
+\begin{bmatrix}
+\cos\theta &amp; -\sin\theta \\
+\sin\theta &amp; \cos\theta
+\end{bmatrix}.
+$$</div>
+<p>例如，当 <span class="math-inline">$\theta=90^\circ$</span> 时，</p>
+<div class="math-display">$$
+\mathbf{R}(90^\circ)=
+\begin{bmatrix}
+0 &amp; -1 \\
+1 &amp; 0
+\end{bmatrix}.
+$$</div>
+<p>它把向量 <span class="math-inline">$(1,0)^{T}$</span> 转换为 <span class="math-inline">$(0,1)^{T}$</span>。</p>
+<h3 id="3-2-三维空间中的基本旋转"><a href="#3-2-三维空间中的基本旋转" class="headerlink" title="3.2 三维空间中的基本旋转"></a>3.2 三维空间中的基本旋转</h3><p>在三维空间中，分别绕 <span class="math-inline">$x$</span>、<span class="math-inline">$y$</span>、<span class="math-inline">$z$</span> 轴旋转 <span class="math-inline">$\theta$</span> 的矩阵为</p>
+<div class="math-display">$$
+\mathbf{R}_{x}(\theta)=
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 \\
+0 &amp; \cos\theta &amp; -\sin\theta \\
+0 &amp; \sin\theta &amp; \cos\theta
+\end{bmatrix},
+$$</div>
+<div class="math-display">$$
+\mathbf{R}_{y}(\theta)=
+\begin{bmatrix}
+\cos\theta &amp; 0 &amp; \sin\theta \\
+0 &amp; 1 &amp; 0 \\
+-\sin\theta &amp; 0 &amp; \cos\theta
+\end{bmatrix},
+$$</div>
+<div class="math-display">$$
+\mathbf{R}_{z}(\theta)=
+\begin{bmatrix}
+\cos\theta &amp; -\sin\theta &amp; 0 \\
+\sin\theta &amp; \cos\theta &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{bmatrix}.
+$$</div>
+<p>旋转矩阵有两个重要性质：</p>
+<div class="math-display">$$
+\mathbf{R}^{T}\mathbf{R}=\mathbf{I},
+\qquad
+\det(\mathbf{R})=1.
+$$</div>
+<p>因此，</p>
+<div class="math-display">$$
+\mathbf{R}^{-1}=\mathbf{R}^{T}.
+$$</div>
+<p>这意味着反向旋转不必重新求逆，只需把旋转矩阵转置。</p>
+<p>旋转矩阵的三列还具有直观的几何意义：它们分别是被描述坐标系的 <span class="math-inline">$x$</span>、<span class="math-inline">$y$</span>、<span class="math-inline">$z$</span> 轴在参考坐标系中的方向。</p>
+<h2 id="4-平移：两个坐标系的原点不再重合"><a href="#4-平移：两个坐标系的原点不再重合" class="headerlink" title="4. 平移：两个坐标系的原点不再重合"></a>4. 平移：两个坐标系的原点不再重合</h2><p>现在让坐标系 <span class="math-inline">$\{B\}$</span> 不仅相对 <span class="math-inline">$\{A\}$</span> 发生旋转，其原点也发生平移。用</p>
+<div class="math-display">$$
+\mathbf{t}^{A}_{B}=
+\begin{bmatrix}
+t_{x} \\
+t_{y} \\
+t_{z}
+\end{bmatrix}
+$$</div>
+<p>表示坐标系 <span class="math-inline">$\{B\}$</span> 的原点在坐标系 <span class="math-inline">$\{A\}$</span> 中的位置。</p>
+<p>点 <span class="math-inline">$P$</span> 的坐标变换关系变为</p>
+<div class="math-display">$$
+\mathbf{p}^{A}
+=
+\mathbf{R}^{A}_{B}\mathbf{p}^{B}
++
+\mathbf{t}^{A}_{B}.
+$$</div>
+<p>这个式子可以分成两步理解：</p>
+<ol>
+<li>用 <span class="math-inline">$\mathbf{R}^{A}_{B}\mathbf{p}^{B}$</span> 统一两个坐标系的朝向；</li>
+<li>再加上 <span class="math-inline">$\mathbf{t}^{A}_{B}$</span>，补偿两个坐标系原点之间的距离。</li>
+</ol>
+<p>问题在于，旋转是矩阵乘法，平移却是向量加法。当机器人包含很多连杆时，不断交替进行乘法和加法会很麻烦。齐次坐标正是为了解决这个问题。</p>
+<h2 id="5-齐次坐标：给三维坐标增加一维"><a href="#5-齐次坐标：给三维坐标增加一维" class="headerlink" title="5. 齐次坐标：给三维坐标增加一维"></a>5. 齐次坐标：给三维坐标增加一维</h2><p>将三维点 <span class="math-inline">$\mathbf{p}$</span> 的末尾补上一个 <span class="math-inline">$1$</span>：</p>
+<div class="math-display">$$
+\widetilde{\mathbf{p}}=
+\begin{bmatrix}
+x \\
+y \\
+z \\
+1
+\end{bmatrix}.
+$$</div>
+<p>这个四维向量称为点的<strong>齐次坐标</strong>。增加的最后一维不是新的空间方向，而是一种数学技巧，使旋转和平移能够写进同一个矩阵乘法。</p>
+<p>对应的齐次变换矩阵为</p>
+<div class="math-display">$$
+\mathbf{T}^{A}_{B}
+=
+\begin{bmatrix}
+\mathbf{R}^{A}_{B} &amp; \mathbf{t}^{A}_{B} \\
+\mathbf{0}^{T} &amp; 1
+\end{bmatrix}.
+$$</div>
+<p>展开后就是</p>
+<div class="math-display">$$
+\mathbf{T}^{A}_{B}
+=
+\begin{bmatrix}
+r_{11} &amp; r_{12} &amp; r_{13} &amp; t_{x} \\
+r_{21} &amp; r_{22} &amp; r_{23} &amp; t_{y} \\
+r_{31} &amp; r_{32} &amp; r_{33} &amp; t_{z} \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}.
+$$</div>
+<p>于是，包含旋转和平移的坐标变换可以统一写成</p>
+<div class="math-display">$$
+\widetilde{\mathbf{p}}^{A}
+=
+\mathbf{T}^{A}_{B}
+\widetilde{\mathbf{p}}^{B}.
+$$</div>
+<p>矩阵中各部分的意义非常明确：</p>
+<table>
+<thead>
+<tr>
+<th>部分</th>
+<th align="right">尺寸</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>左上角 <span class="math-inline">$\mathbf{R}^{A}_{B}$</span></td>
+<td align="right"><span class="math-inline">$3\times3$</span></td>
+<td>坐标系 <span class="math-inline">$\{B\}$</span> 相对 <span class="math-inline">$\{A\}$</span> 的姿态</td>
+</tr>
+<tr>
+<td>右上角 <span class="math-inline">$\mathbf{t}^{A}_{B}$</span></td>
+<td align="right"><span class="math-inline">$3\times1$</span></td>
+<td>坐标系 <span class="math-inline">$\{B\}$</span> 原点在 <span class="math-inline">$\{A\}$</span> 中的位置</td>
+</tr>
+<tr>
+<td>最后一行</td>
+<td align="right"><span class="math-inline">$1\times4$</span></td>
+<td>保证齐次坐标运算成立</td>
+</tr>
+</tbody></table>
+<h2 id="6-多级坐标系如何连续变换"><a href="#6-多级坐标系如何连续变换" class="headerlink" title="6. 多级坐标系如何连续变换"></a>6. 多级坐标系如何连续变换</h2><p>机器人通常包含多个坐标系。若已知 <span class="math-inline">$\{B\}$</span> 相对 <span class="math-inline">$\{A\}$</span> 的变换，以及 <span class="math-inline">$\{C\}$</span> 相对 <span class="math-inline">$\{B\}$</span> 的变换，则</p>
+<div class="math-display">$$
+\mathbf{T}^{A}_{C}
+=
+\mathbf{T}^{A}_{B}
+\mathbf{T}^{B}_{C}.
+$$</div>
+<p>矩阵乘法从右向左执行：先把 <span class="math-inline">$\{C\}$</span> 中的坐标转换到 <span class="math-inline">$\{B\}$</span>，再从 <span class="math-inline">$\{B\}$</span> 转换到 <span class="math-inline">$\{A\}$</span>。</p>
+<p>这条规则非常重要。以后计算串联机械臂末端位姿时，本质上就是把每一级连杆之间的齐次变换矩阵按正确顺序相乘。</p>
+<p>齐次变换矩阵的逆矩阵也具有简洁形式：</p>
+<div class="math-display">$$
+\left(\mathbf{T}^{A}_{B}\right)^{-1}
+=
+\mathbf{T}^{B}_{A}
+=
+\begin{bmatrix}
+\left(\mathbf{R}^{A}_{B}\right)^{T}
+&amp;
+-\left(\mathbf{R}^{A}_{B}\right)^{T}\mathbf{t}^{A}_{B}
+\\
+\mathbf{0}^{T} &amp; 1
+\end{bmatrix}.
+$$</div>
+<p>它可以把坐标从 <span class="math-inline">$\{A\}$</span> 反向转换到 <span class="math-inline">$\{B\}$</span>。</p>
+<h2 id="7-一个完整的数值例子"><a href="#7-一个完整的数值例子" class="headerlink" title="7. 一个完整的数值例子"></a>7. 一个完整的数值例子</h2><p>设坐标系 <span class="math-inline">$\{B\}$</span> 相对 <span class="math-inline">$\{A\}$</span> 绕 <span class="math-inline">$z$</span> 轴逆时针旋转 <span class="math-inline">$90^\circ$</span>，并平移到</p>
+<div class="math-display">$$
+\mathbf{t}^{A}_{B}=
+\begin{bmatrix}
+2 \\
+1 \\
+0
+\end{bmatrix}.
+$$</div>
+<p>对应的旋转矩阵和齐次变换矩阵分别为</p>
+<div class="math-display">$$
+\mathbf{R}^{A}_{B}=
+\begin{bmatrix}
+0 &amp; -1 &amp; 0 \\
+1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{bmatrix},
+$$</div>
+<div class="math-display">$$
+\mathbf{T}^{A}_{B}=
+\begin{bmatrix}
+0 &amp; -1 &amp; 0 &amp; 2 \\
+1 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}.
+$$</div>
+<p>若点 <span class="math-inline">$P$</span> 在坐标系 <span class="math-inline">$\{B\}$</span> 中的坐标为</p>
+<div class="math-display">$$
+\widetilde{\mathbf{p}}^{B}=
+\begin{bmatrix}
+1 \\
+0 \\
+0 \\
+1
+\end{bmatrix},
+$$</div>
+<p>则它在坐标系 <span class="math-inline">$\{A\}$</span> 中的坐标为</p>
+<div class="math-display">$$
+\widetilde{\mathbf{p}}^{A}
+=
+\mathbf{T}^{A}_{B}\widetilde{\mathbf{p}}^{B}
+=
+\begin{bmatrix}
+2 \\
+2 \\
+0 \\
+1
+\end{bmatrix}.
+$$</div>
+<p>几何上也很好理解：点先随坐标系旋转，从 <span class="math-inline">$x$</span> 方向转到 <span class="math-inline">$y$</span> 方向；再整体平移 <span class="math-inline">$(2,1,0)$</span>，最终到达 <span class="math-inline">$(2,2,0)$</span>。</p>
+<h2 id="8-初学时最容易出现的错误"><a href="#8-初学时最容易出现的错误" class="headerlink" title="8. 初学时最容易出现的错误"></a>8. 初学时最容易出现的错误</h2><h3 id="8-1-忘记说明坐标属于哪个坐标系"><a href="#8-1-忘记说明坐标属于哪个坐标系" class="headerlink" title="8.1 忘记说明坐标属于哪个坐标系"></a>8.1 忘记说明坐标属于哪个坐标系</h3><p>只写 <span class="math-inline">$\mathbf{p}$</span> 很容易混淆。推导时应尽量保留 <span class="math-inline">$\mathbf{p}^{A}$</span>、<span class="math-inline">$\mathbf{p}^{B}$</span> 这样的坐标系标记。</p>
+<h3 id="8-2-颠倒矩阵相乘顺序"><a href="#8-2-颠倒矩阵相乘顺序" class="headerlink" title="8.2 颠倒矩阵相乘顺序"></a>8.2 颠倒矩阵相乘顺序</h3><p>矩阵乘法通常不满足交换律：</p>
+<div class="math-display">$$
+\mathbf{T}_{1}\mathbf{T}_{2}
+\ne
+\mathbf{T}_{2}\mathbf{T}_{1}.
+$$</div>
+<p>因此，“先旋转再平移”和“先平移再旋转”一般会得到不同结果。</p>
+<h3 id="8-3-把角度直接代入要求弧度的程序"><a href="#8-3-把角度直接代入要求弧度的程序" class="headerlink" title="8.3 把角度直接代入要求弧度的程序"></a>8.3 把角度直接代入要求弧度的程序</h3><p>MATLAB、Python 和 C 语言中的三角函数通常接收弧度。角度与弧度的换算为</p>
+<div class="math-display">$$
+\theta_{\mathrm{rad}}
+=
+\theta_{\mathrm{deg}}\frac{\pi}{180}.
+$$</div>
+<h3 id="8-4-把点和方向向量混为一谈"><a href="#8-4-把点和方向向量混为一谈" class="headerlink" title="8.4 把点和方向向量混为一谈"></a>8.4 把点和方向向量混为一谈</h3><p>点的齐次坐标最后一项为 <span class="math-inline">$1$</span>，所以会受到平移影响；纯方向向量的齐次坐标最后一项为 <span class="math-inline">$0$</span>，因此只发生旋转：</p>
+<div class="math-display">$$
+\widetilde{\mathbf{v}}=
+\begin{bmatrix}
+v_{x} &amp; v_{y} &amp; v_{z} &amp; 0
+\end{bmatrix}^{T}.
+$$</div>
+<h2 id="9-小结"><a href="#9-小结" class="headerlink" title="9. 小结"></a>9. 小结</h2><p>本文建立了机器人位姿描述所需的最小知识链：</p>
+<ol>
+<li>连杆和关节组成机器人的机械结构；</li>
+<li>自由度描述机器人具有多少个独立运动；</li>
+<li>坐标系是描述位置和姿态的参照；</li>
+<li>旋转矩阵描述坐标系之间的朝向关系；</li>
+<li>平移向量描述坐标系原点之间的位置关系；</li>
+<li>齐次变换矩阵把旋转和平移统一为一次矩阵乘法；</li>
+<li>多级齐次变换矩阵相乘，可以逐级得到机器人末端相对于基座的位姿。</li>
+</ol>
+<p>到这里，我们已经具备继续学习机械臂正运动学、D-H 参数法、雅可比矩阵和逆运动学所需的数学基础。</p>
+
+    </div>
+  </div>
+
+  <footer class="article-footer">
+    <p>END OF NOTE / 2026</p>
+    <div class="article-pagination">
+      
+      
+    </div>
+  </footer>
+</article>
+
+      </main>
+      <footer class="site-footer">
+  <div class="footer-grid">
+    <p class="footer-index">A—J / 2026</p>
+    <p class="footer-note">Independent research notes on robotics and mechanical systems.</p>
+    <a class="footer-link" href="https://github.com/aymuua" target="_blank" rel="noopener noreferrer">
+      GitHub
+      <span aria-hidden="true">↗</span>
+    </a>
+    <button class="back-to-top" type="button" data-back-to-top>
+      返回顶部
+      <span aria-hidden="true">↑</span>
+    </button>
+  </div>
+</footer>
+
+    </div>
+    <div class="reading-progress" aria-hidden="true">
+      <span data-reading-progress></span>
+    </div>
+
+    <!-- Search overlay -->
+    <div class="search-overlay" data-search-overlay aria-hidden="true">
+      <div class="search-panel">
+        <div class="search-header">
+          <input
+            class="search-input"
+            type="text"
+            placeholder="搜索文章…"
+            data-search-input
+            autocomplete="off"
+          >
+          <button class="search-close" type="button" aria-label="关闭搜索" data-search-close>
+            <span>关闭</span>
+            <span aria-hidden="true">✕</span>
+          </button>
+        </div>
+        <div class="search-results" data-search-results>
+          <p class="search-hint">输入关键词开始搜索</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/site.js?v=18e5396ec568" defer></script>
+  </body>
+</html>
