@@ -1,17 +1,32 @@
+<%
+  const typeLabel = { note: '笔记', reflection: '心得', log: '日志' };
+  const posts = site.posts.toArray();
+  const byYear = {};
+  posts.forEach(function(post) {
+    const y = date(post.date, 'YYYY');
+    (byYear[y] = byYear[y] || []).push(post);
+  });
+%>
 <section class="archive-page">
-  <header class="archive-hero grid-guides">
-    <p data-reveal>(02) / ARCHIVE</p>
-    <h1 data-reveal>Writing<br>Index</h1>
-    <p class="archive-count" data-reveal>
-      <strong><%= site.posts.length %></strong>
-      <span>Published<br>notes</span>
-    </p>
+  <header class="page-head">
+    <span class="page-kicker">ARCHIVE</span>
+    <h1>归档</h1>
+    <p class="page-count"><%= posts.length %> 篇</p>
   </header>
-  <div class="archive-content">
-    <div class="section-heading" data-reveal>
-      <p><span>ALL</span> / CHRONOLOGICAL</p>
-      <p>按发布时间排序</p>
+  <% Object.keys(byYear).sort().reverse().forEach(function(year) { %>
+    <div class="archive-year">
+      <p class="archive-year-label"><%= year %></p>
+      <ul class="post-list">
+        <% byYear[year].forEach(function(post) { %>
+          <li class="post-list-item">
+            <a href="<%- url_for(post.path) %>">
+              <span class="post-date"><%= date(post.date, 'MM.DD') %></span>
+              <span class="post-title"><%= post.title %></span>
+              <span class="post-type"><%= typeLabel[post.type] || '笔记' %></span>
+            </a>
+          </li>
+        <% }); %>
+      </ul>
     </div>
-    <%- partial('_partial/post-list') %>
-  </div>
+  <% }); %>
 </section>

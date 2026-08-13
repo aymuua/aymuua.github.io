@@ -1,14 +1,13 @@
 <%
   const siteTitle = config.title;
   const documentTitle = page.title ? `${page.title} — ${siteTitle}` : siteTitle;
-  const rawDescription = page.description || page.excerpt || config.description || '';
+  const rawDescription = page.description || (page.excerpt ? strip_html(page.excerpt) : '') || config.description || '';
   const documentDescription = strip_html(rawDescription).replace(/\s+/g, ' ').trim();
   const canonicalUrl = config.url.replace(/\/$/, '') + url_for(page.path || '/');
 %>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f1efe9">
-<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffffff">
 <title><%= documentTitle %></title>
 <meta name="description" content="<%= documentDescription %>">
 <meta name="author" content="<%= config.author %>">
@@ -17,8 +16,10 @@
 <meta property="og:description" content="<%= documentDescription %>">
 <meta property="og:url" content="<%= canonicalUrl %>">
 <meta property="og:site_name" content="<%= siteTitle %>">
-<meta name="twitter:card" content="summary">
 <link rel="canonical" href="<%= canonicalUrl %>">
-<link rel="icon" href="<%- gridspace_asset_url('/icons/favicon.svg') %>" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://font.sec.miui.com/font/css?family=MiSans:400,450,700:Chinese_Simplify,Latin&display=swap">
 <link rel="stylesheet" href="<%- gridspace_asset_url('/css/style.css') %>">
 <script>document.documentElement.classList.add('js');</script>

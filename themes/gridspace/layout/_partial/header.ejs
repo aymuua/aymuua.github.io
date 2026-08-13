@@ -1,34 +1,12 @@
-<header class="site-header" data-site-header>
-  <div class="header-grid">
-    <a class="brand" href="<%- url_for('/') %>" aria-label="<%= config.title %> 首页">
-      <span class="brand-mark" aria-hidden="true">A—J</span>
-      <span class="brand-name"><%= config.title %></span>
-    </a>
-
-    <div class="header-coordinate" aria-label="站点版本">
-      <span>RESEARCH INDEX</span>
-      <span>VOL. 01 / 2026</span>
-    </div>
-
-    <button class="search-toggle" type="button" aria-label="搜索" data-search-toggle>
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-        <circle cx="11" cy="11" r="8"></circle>
-        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-      </svg>
-    </button>
-
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" data-menu-toggle>
-      <span>菜单</span>
-      <span class="menu-toggle-lines" aria-hidden="true"><i></i><i></i></span>
-    </button>
-
-    <nav class="site-navigation" id="site-navigation" aria-label="主导航" data-site-navigation>
-      <% (theme.menu || []).forEach(function(item) { %>
-        <a class="nav-link<%= is_current(item.url) ? ' is-current' : '' %>" href="<%- url_for(item.url) %>">
-          <span><%= item.index %></span>
-          <%= item.label %>
-        </a>
-      <% }); %>
-    </nav>
+<header class="site-header">
+  <a class="brand" href="<%- url_for('/') %>"><%= config.title %></a>
+  <nav class="site-nav" id="site-navigation" aria-label="主导航" data-site-navigation>
+    <% (theme.menu || []).forEach(function(item) { %>
+      <a class="nav-link<%= is_current(item.url) ? ' is-current' : '' %>" href="<%- url_for(item.url) %>"><%= item.label %></a>
+    <% }); %>
+  </nav>
+  <div class="header-actions">
+    <button class="search-toggle" type="button" data-search-toggle>搜索 <span>⌘K</span></button>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-navigation">菜单</button>
   </div>
 </header>

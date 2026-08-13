@@ -1,68 +1,76 @@
 <%
-  const plainText = strip_html(page.content || '').replace(/\s+/g, ' ').trim();
-  const cjkCount = (plainText.match(/[\u3400-\u9fff]/g) || []).length;
-  const latinCount = (plainText.replace(/[\u3400-\u9fff]/g, ' ').match(/\b[\w'-]+\b/g) || []).length;
-  const readingMinutes = Math.max(1, Math.ceil(cjkCount / 450 + latinCount / 220));
-  const postCategories = page.categories && page.categories.toArray ? page.categories.toArray() : [];
+  const typeLabel = { note: '笔记', reflection: '心得', log: '日志' };
+  const currentType = typeLabel[page.type] || '笔记';
+
+  const seriesDefs = (site.data && site.data.series) || [];
+  const currentSeries = page.series ? seriesDefs.find(s => s.id === page.series) : null;
+
+  const seriesPosts = page.series
+    ? site.posts.toArray()
+        .filter(p => p.series === page.series)
+        .sort((a, b) => a.date - b.date)
+    : [];
+  const currentIndex = seriesPosts.findIndex(p => p.path === page.path);
+  const prevPost = currentIndex > 0 ? seriesPosts[currentIndex - 1] : null;
+  const nextPost = currentIndex >= 0 && currentIndex < seriesPosts.length - 1 ? seriesPosts[currentIndex + 1] : null;
+
   const postTags = page.tags && page.tags.toArray ? page.tags.toArray() : [];
 %>
-
-<article class="article-page">
-  <header class="article-hero grid-guides">
-    <div class="article-kicker" data-reveal>
-      <span>(NOTE)</span>
-      <span><%= postCategories.length ? postCategories[0].name : 'RESEARCH' %></span>
+<article class="post">
+  <header class="post-header">
+    <div class="post-kicker">
+      <span class="post-type">[<%= currentType %>]</span>
+      <% if (currentSeries) { %>
+        <span class="post-series">SERIES <%= currentSeries.index %> · <%= currentIndex + 1 %>/<%= seriesPosts.length %></span>
+      <% } %>
     </div>
-    <h1 data-reveal><%= page.title %></h1>
+    <h1 class="post-title"><%= page.title %></h1>
     <% if (page.description) { %>
-      <p class="article-deck" data-reveal><%= page.description %></p>
+      <p class="post-deck"><%= page.description %></p>
     <% } %>
-    <div class="article-hero-meta" data-reveal>
-      <span>Published<br><strong><%= date(page.date, 'YYYY.MM.DD') %></strong></span>
-      <span>Reading time<br><strong><%= readingMinutes %> min</strong></span>
-      <span>Language<br><strong>ZH—CN</strong></span>
+    <div class="post-meta">
+      <span><%= date(page.date, 'YYYY.MM.DD') %></span>
+      <% if (currentSeries) { %>
+        <span aria-hidden="true">·</span>
+        <span><%= currentSeries.name %></span>
+      <% } %>
     </div>
   </header>
 
-  <div class="article-grid">
-    <aside class="article-aside">
-      <div class="article-aside-inner">
-        <p class="aside-label">ON THIS PAGE</p>
-        <nav class="article-toc" aria-label="文章目录" data-toc>
-          <ol data-toc-list></ol>
-        </nav>
-
-        <% if (postTags.length) { %>
-          <div class="article-tags">
-            <p class="aside-label">TAGS</p>
-            <% postTags.forEach(function(tag) { %>
-              <a href="<%- url_for(tag.path) %>"># <%= tag.name %></a>
-            <% }); %>
-          </div>
-        <% } %>
-      </div>
-    </aside>
-
-    <div class="article-content prose" id="article-content">
+  <div class="post-layout">
+    <div class="post-content">
       <%- page.content %>
     </div>
+    <aside class="post-aside">
+      <% if (currentSeries && seriesPosts.length > 1) { %>
+        <p class="aside-label">SERIES</p>
+        <nav class="series-toc" aria-label="系列目录">
+          <% seriesPosts.forEach(function(p, i) { %>
+            <a class="<%= i === currentIndex ? 'is-current' : '' %>" href="<%- url_for(p.path) %>">
+              <span class="series-toc-num"><%= String(i + 1).padStart(2, '0') %></span>
+              <span class="series-toc-title"><%= p.title %></span>
+            </a>
+          <% }); %>
+        </nav>
+      <% } %>
+    </aside>
   </div>
 
-  <footer class="article-footer">
-    <p>END OF NOTE / <%= date(page.date, 'YYYY') %></p>
-    <div class="article-pagination">
-      <% if (page.prev) { %>
-        <a href="<%- url_for(page.prev.path) %>">
-          <span>上一篇</span>
-          <strong><%= page.prev.title %></strong>
-        </a>
+  <footer class="post-footer">
+    <% if (postTags.length) { %>
+      <div class="post-tags">
+        <% postTags.forEach(function(tag) { %>
+          <a href="<%- url_for(tag.path) %>"><%= tag.name %></a>
+        <% }); %>
+      </div>
+    <% } %>
+    <nav class="post-pagination" aria-label="文章导航">
+      <% if (prevPost) { %>
+        <a class="pagination-prev" href="<%- url_for(prevPost.path) %>"><span>←</span> <%= prevPost.title %></a>
       <% } %>
-      <% if (page.next) { %>
-        <a href="<%- url_for(page.next.path) %>">
-          <span>下一篇</span>
-          <strong><%= page.next.title %></strong>
-        </a>
+      <% if (nextPost) { %>
+        <a class="pagination-next" href="<%- url_for(nextPost.path) %>"><%= nextPost.title %> <span>→</span></a>
       <% } %>
-    </div>
+    </nav>
   </footer>
 </article>

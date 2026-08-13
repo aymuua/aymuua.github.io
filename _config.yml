@@ -5,14 +5,12 @@
 # Site
 title: Aymuuajasmine's Space
 subtitle: ''
-description: 记录机器人学、机构设计、变刚度系统与空中机器人的研究和实践。
+description: 记录机器人学、线性代数、并联机器人与深度学习的研究笔记。
 keywords:
   - 机器人学
-  - 机构设计
+  - 线性代数
   - 并联机器人
-  - 变刚度
-  - 无人机
-  - 嵌入式开发
+  - 深度学习
 author: aymuua
 language: zh-CN
 timezone: ''
@@ -83,6 +81,10 @@ index_generator:
 default_category: uncategorized
 category_map:
 tag_map:
+tag_generator:
+  per_page: 0
+  order_by: -date
+  enable_index_page: true
 
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta

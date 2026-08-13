@@ -1,15 +1,18 @@
 <%
+  const typeLabel = { note: '笔记', reflection: '心得', log: '日志' };
   const listedPosts = page.posts && page.posts.toArray
     ? page.posts.toArray()
     : site.posts.toArray();
 %>
-<div class="post-index-list">
+<ul class="post-list">
   <% listedPosts.forEach(function(post, index) { %>
-    <a class="post-index-row" href="<%- url_for(post.path) %>" data-reveal>
-      <span class="post-index-number"><%= String(index + 1).padStart(2, '0') %></span>
-      <span class="post-index-date"><%= date(post.date, 'YYYY.MM.DD') %></span>
-      <span class="post-index-title"><%= post.title %></span>
-      <span class="post-index-arrow" aria-hidden="true">↗</span>
-    </a>
+    <li class="post-list-item">
+      <a href="<%- url_for(post.path) %>">
+        <span class="post-number"><%= String(index + 1).padStart(2, '0') %></span>
+        <span class="post-date"><%= date(post.date, 'YYYY.MM.DD') %></span>
+        <span class="post-title"><%= post.title %></span>
+        <span class="post-type"><%= typeLabel[post.type] || '笔记' %></span>
+      </a>
+    </li>
   <% }); %>
-</div>
+</ul>

@@ -1,44 +1,30 @@
 <%
   const s = page.series || {};
-  const seriesPosts = page.posts || [];
+  const typeLabel = { note: '笔记', reflection: '心得', log: '日志' };
+  const posts = page.posts || [];
 %>
-
 <section class="archive-page">
-  <header class="archive-hero grid-guides">
-    <p data-reveal>(SERIES <%= s.index %>) / DETAIL</p>
-    <h1 data-reveal><%= s.name %></h1>
-    <p class="series-hero-deck" data-reveal><%= s.description %></p>
-    <p class="archive-count" data-reveal>
-      <strong><%= seriesPosts.length %></strong>
-      <span>Published<br>notes</span>
-    </p>
-  </header>
-
-  <div class="archive-content">
-    <div class="section-heading" data-reveal>
-      <p><span>SERIES <%= s.index %></span> / <%= s.english.toUpperCase() %></p>
-      <p><%= s.status %></p>
-    </div>
-
-    <% if (seriesPosts.length) { %>
-      <div class="series-post-list">
-        <% seriesPosts.forEach(function(post, i) { %>
-          <a class="series-post-row" href="<%- url_for(post.path) %>" data-reveal>
-            <span class="series-post-number"><%= String(i + 1).padStart(2, '0') %></span>
-            <span class="series-post-date"><%= date(post.date, 'YYYY.MM.DD') %></span>
-            <span class="series-post-title"><%= post.title %></span>
-            <span class="series-post-arrow" aria-hidden="true">↗</span>
-          </a>
-        <% }); %>
-      </div>
-    <% } else { %>
-      <div class="series-empty" data-reveal>
-        <p>这个系列还没有文章，敬请期待。</p>
-      </div>
+  <header class="page-head">
+    <span class="page-kicker">SERIES <%= s.index %></span>
+    <h1><%= s.name %></h1>
+    <% if (s.description) { %>
+      <p class="page-deck"><%= s.description %></p>
     <% } %>
-
-    <div class="series-back" data-reveal>
-      <a href="<%- url_for('/series/') %>">← 返回专题总览</a>
-    </div>
+    <p class="page-count"><%= posts.length %> 篇 · <%= s.status %></p>
+  </header>
+  <div class="series-post-list">
+    <% if (posts.length) { %>
+      <% posts.forEach(function(post, i) { %>
+        <a class="series-post-row" href="<%- url_for(post.path) %>">
+          <span class="series-post-num"><%= String(i + 1).padStart(2, '0') %></span>
+          <span class="series-post-date"><%= date(post.date, 'YYYY.MM.DD') %></span>
+          <span class="series-post-title"><%= post.title %></span>
+          <span class="series-post-type">[<%= typeLabel[post.type] || '笔记' %>]</span>
+        </a>
+      <% }); %>
+    <% } else { %>
+      <p class="series-empty">这个系列还没有文章。</p>
+    <% } %>
   </div>
+  <a class="back-link" href="<%- url_for('/series/') %>">← 全部系列</a>
 </section>

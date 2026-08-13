@@ -2,47 +2,20 @@
   const seriesData = page.series || [];
   const totalPosts = seriesData.reduce(function(sum, s) { return sum + s.postCount; }, 0);
 %>
-
 <section class="archive-page">
-  <header class="archive-hero grid-guides">
-    <p data-reveal>(SERIES) / INDEX</p>
-    <h1 data-reveal>专题</h1>
-    <p class="archive-count" data-reveal>
-      <strong><%= seriesData.length %></strong>
-      <span>Series<br>entries</span>
-    </p>
+  <header class="page-head">
+    <span class="page-kicker">SERIES</span>
+    <h1>系列</h1>
+    <p class="page-count"><%= seriesData.length %> Series · <%= totalPosts %> 篇</p>
   </header>
-
-  <div class="archive-content">
-    <div class="section-heading" data-reveal>
-      <p><span>ALL</span> / SERIES</p>
-      <p><%= totalPosts %> 篇文章</p>
-    </div>
-
-    <div class="series-grid">
-      <% seriesData.forEach(function(s) { %>
-        <a class="series-card" href="<%- url_for('/series/' + s.id + '/') %>" data-reveal>
-          <div class="series-card-top">
-            <span class="series-index">SERIES <%= s.index %></span>
-            <span class="series-status"><%= s.status %></span>
-          </div>
-          <div class="series-card-body">
-            <p class="series-english"><%= s.english %></p>
-            <h2><%= s.name %></h2>
-            <p class="series-description"><%= s.description %></p>
-          </div>
-          <div class="series-card-bottom">
-            <span class="series-progress">
-              <% if (s.postCount > 0) { %>
-                <%= s.postCount %> 篇文章
-              <% } else { %>
-                即将发布
-              <% } %>
-            </span>
-            <span class="series-arrow" aria-hidden="true">→</span>
-          </div>
-        </a>
-      <% }); %>
-    </div>
+  <div class="series-list">
+    <% seriesData.forEach(function(s) { %>
+      <a class="series-row" href="<%- url_for('/series/' + s.id + '/') %>">
+        <span class="series-index"><%= s.index %></span>
+        <span class="series-name"><%= s.name %></span>
+        <span class="series-english"><%= s.english %></span>
+        <span class="series-count"><%= s.postCount %> 篇</span>
+      </a>
+    <% }); %>
   </div>
 </section>
