@@ -174,4 +174,26 @@
       openSearch();
     }
   });
+
+  /* ----- Spotify embed (hide when unreachable, e.g. no proxy) ----- */
+
+  const spotifyPlayer = document.querySelector("[data-spotify-player]");
+
+  if (spotifyPlayer) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 2500);
+
+    fetch("https://open.spotify.com/", {
+      mode: "no-cors",
+      signal: controller.signal,
+    })
+      .then(() => {
+        clearTimeout(timeout);
+        spotifyPlayer.classList.add("is-ready");
+      })
+      .catch(() => {
+        clearTimeout(timeout);
+        spotifyPlayer.remove();
+      });
+  }
 })();
