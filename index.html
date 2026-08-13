@@ -1,323 +1,222 @@
 <!doctype html>
 <html lang="zh-CN">
-  <head>
-    
+<head>
+  
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f1efe9">
-<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffffff">
 <title>Aymuuajasmine&#39;s Space</title>
-<meta name="description" content="记录机器人学、机构设计、变刚度系统与空中机器人的研究和实践。">
+<meta name="description" content="记录机器人学、线性代数、并联机器人与深度学习的研究笔记。">
 <meta name="author" content="aymuua">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Aymuuajasmine&#39;s Space">
-<meta property="og:description" content="记录机器人学、机构设计、变刚度系统与空中机器人的研究和实践。">
+<meta property="og:description" content="记录机器人学、线性代数、并联机器人与深度学习的研究笔记。">
 <meta property="og:url" content="https://aymuua.github.io/index.html">
 <meta property="og:site_name" content="Aymuuajasmine&#39;s Space">
-<meta name="twitter:card" content="summary">
 <link rel="canonical" href="https://aymuua.github.io/index.html">
-<link rel="icon" href="/icons/favicon.svg?v=fe67b583fb1b" type="image/svg+xml">
-<link rel="stylesheet" href="/css/style.css?v=981646cce44d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://font.sec.miui.com/font/css?family=MiSans:400,450,700:Chinese_Simplify,Latin&display=swap">
+<link rel="stylesheet" href="/css/style.css?v=8d3449d3b208">
 <script>document.documentElement.classList.add('js');</script>
 
-  <meta name="generator" content="Hexo 7.3.0"></head>
-  <body class="site-body layout-index">
-    <a class="skip-link" href="#main-content">跳到正文</a>
-    <div class="site-frame">
-      <header class="site-header" data-site-header>
-  <div class="header-grid">
-    <a class="brand" href="/" aria-label="Aymuuajasmine&#39;s Space 首页">
-      <span class="brand-mark" aria-hidden="true">A—J</span>
-      <span class="brand-name">Aymuuajasmine&#39;s Space</span>
-    </a>
+<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
 
-    <div class="header-coordinate" aria-label="站点版本">
-      <span>RESEARCH INDEX</span>
-      <span>VOL. 01 / 2026</span>
-    </div>
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
 
-    <button class="search-toggle" type="button" aria-label="搜索" data-search-toggle>
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-        <circle cx="11" cy="11" r="8"></circle>
-        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-      </svg>
-    </button>
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
 
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" data-menu-toggle>
-      <span>菜单</span>
-      <span class="menu-toggle-lines" aria-hidden="true"><i></i><i></i></span>
-    </button>
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
 
-    <nav class="site-navigation" id="site-navigation" aria-label="主导航" data-site-navigation>
-      
-        <a class="nav-link is-current" href="/">
-          <span>01</span>
-          首页
-        </a>
-      
-        <a class="nav-link" href="/series/">
-          <span>02</span>
-          专题
-        </a>
-      
-        <a class="nav-link" href="/categories/">
-          <span>03</span>
-          分类
-        </a>
-      
-        <a class="nav-link" href="/archives/">
-          <span>04</span>
-          归档
-        </a>
-      
-        <a class="nav-link" href="/about/">
-          <span>05</span>
-          关于
-        </a>
-      
-    </nav>
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+<body class="layout-index">
+  <header class="site-header">
+  <a class="brand" href="/">Aymuuajasmine&#39;s Space</a>
+  <nav class="site-nav" id="site-navigation" aria-label="主导航" data-site-navigation>
+    
+      <a class="nav-link is-current" href="/">首页</a>
+    
+      <a class="nav-link" href="/series/">系列</a>
+    
+      <a class="nav-link" href="/tags/">标签</a>
+    
+      <a class="nav-link" href="/archives/">归档</a>
+    
+      <a class="nav-link" href="/about/">关于</a>
+    
+      <a class="nav-link" href="/portfolio/">作品集</a>
+    
+  </nav>
+  <div class="header-actions">
+    <button class="search-toggle" type="button" data-search-toggle>搜索 <span>⌘K</span></button>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-navigation">菜单</button>
   </div>
 </header>
 
-      <main id="main-content">
-        
-
-<section class="home-hero grid-guides">
-  <div class="hero-label" data-reveal>
-    <span>(00)</span>
-    <span>PERSONAL RESEARCH SPACE</span>
-  </div>
-
-  <div class="hero-title-wrap">
-    <h1 class="hero-title" aria-label="Aymuuajasmine&#39;s Space">
-      <span data-reveal>Aymuua</span>
-      <span data-reveal>jasmine‘s Space</span>
-    </h1>
-    <p class="hero-edition" aria-hidden="true">EST.<br>2026</p>
-  </div>
-
-  <div class="hero-note" data-reveal>
-    <p>My Journey in Robotics</p>
-    <span>ROBOTICS · MECHANISMS · FLIGHT</span>
-  </div>
-
-  <div class="kinematic-figure" data-reveal aria-label="坐标变换抽象图形">
-    <svg viewBox="0 0 720 520" role="img" aria-labelledby="kinematic-title kinematic-desc">
-      <title id="kinematic-title">机器人坐标变换图形</title>
-      <desc id="kinematic-desc">两个坐标系、连杆和齐次变换矩阵构成的抽象示意图。</desc>
-      <defs>
-        <pattern id="micro-grid" width="32" height="32" patternUnits="userSpaceOnUse">
-          <path d="M 32 0 L 0 0 0 32" class="svg-grid-line"></path>
-        </pattern>
-      </defs>
-      <rect width="720" height="520" class="svg-field"></rect>
-      <rect width="720" height="520" fill="url(#micro-grid)"></rect>
-      <g class="svg-axis axis-a">
-        <line x1="128" y1="368" x2="296" y2="368"></line>
-        <line x1="128" y1="368" x2="128" y2="200"></line>
-        <circle cx="128" cy="368" r="8"></circle>
-        <text x="304" y="374">xA</text>
-        <text x="116" y="190">yA</text>
-      </g>
-      <g class="svg-axis axis-b" transform="translate(476 204) rotate(-24)">
-        <line x1="0" y1="0" x2="142" y2="0"></line>
-        <line x1="0" y1="0" x2="0" y2="-142"></line>
-        <circle cx="0" cy="0" r="8"></circle>
-        <text x="150" y="6">xB</text>
-        <text x="-10" y="-154">yB</text>
-      </g>
-      <path d="M128 368 C240 310 346 246 476 204" class="svg-motion"></path>
-      <circle cx="292" cy="286" r="13" class="svg-joint"></circle>
-      <circle cx="476" cy="204" r="13" class="svg-joint"></circle>
-      <text x="492" y="310" class="svg-matrix">Tᴬʙ = [ R  t ]</text>
-      <text x="562" y="344" class="svg-matrix">[ 0  1 ]</text>
-      <text x="32" y="48" class="svg-caption">FRAME TRANSFORMATION / 01</text>
-      <text x="32" y="488" class="svg-caption">A → B / POSITION + ORIENTATION</text>
-    </svg>
-  </div>
-
-  <div class="hero-scroll" aria-hidden="true">
-    <span>SCROLL TO INDEX</span>
-    <i></i>
-  </div>
+  <main id="main-content" class="site-main">
+    
+<section class="home-hero">
+  <h1 class="hero-title">Aymuuajasmine&#39;s Space</h1>
+  <p class="hero-note">Research Notes on Robotics</p>
 </section>
 
-<section class="section-block latest-section">
-  <div class="section-heading" data-reveal>
-    <p><span>01</span> / LATEST NOTE</p>
-    <p>最新发布</p>
-  </div>
-
-  
-    <a class="featured-post" href="/2026/07/24/robotics-basics-homogeneous-transformation/" data-reveal>
-      <div class="featured-meta">
-        <span>2026.07.24</span>
-        <span>
-          
-            机器人学
-          
-        </span>
-      </div>
-      <div class="featured-copy">
-        <p class="featured-eyebrow">ARTICLE / 01</p>
-        <h2>机器人学基础（一）：从坐标系到齐次变换矩阵</h2>
-        <p>面向初学者的机器人学入门教程，从连杆、关节和自由度出发，逐步理解坐标系、旋转矩阵与齐次变换矩阵。</p>
-      </div>
-      <div class="featured-symbol" aria-hidden="true">
-        <span>R</span>
-        <svg viewBox="0 0 160 160">
-          <circle cx="80" cy="80" r="57"></circle>
-          <path d="M80 23v114M23 80h114M40 40l80 80M120 40l-80 80"></path>
-          <circle cx="80" cy="80" r="10"></circle>
-        </svg>
-      </div>
-      <span class="featured-action">阅读全文 <i aria-hidden="true">↗</i></span>
-    </a>
-  
-</section>
-
-<section class="section-block topics-section">
-  <div class="section-heading" data-reveal>
-    <p><span>02</span> / RESEARCH INDEX</p>
-    <p>内容方向</p>
-  </div>
-
-  <div class="topic-grid">
-    
-      <a class="topic-card" href="/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6/" data-reveal>
-        <div class="topic-card-top">
-          <span>(01)</span>
-          <span>持续更新</span>
-        </div>
-        <div>
-          <p class="topic-english">Robotics Foundations</p>
-          <h3>机器人学基础</h3>
-          <p class="topic-description">坐标变换、运动学、雅可比矩阵、奇异性与轨迹规划。</p>
-        </div>
-      </a>
-    
-      <a class="topic-card" href="/categories/%E5%B9%B6%E8%81%94%E6%9C%BA%E5%99%A8%E4%BA%BA/" data-reveal>
-        <div class="topic-card-top">
-          <span>(02)</span>
-          <span>研究主线</span>
-        </div>
-        <div>
-          <p class="topic-english">Parallel Robots</p>
-          <h3>并联机器人</h3>
-          <p class="topic-description">以 3-RRR 为主线，记录构型、工作空间、刚度与控制。</p>
-        </div>
-      </a>
-    
-      <a class="topic-card" href="/categories/%E5%8F%98%E5%88%9A%E5%BA%A6/" data-reveal>
-        <div class="topic-card-top">
-          <span>(03)</span>
-          <span>研究主线</span>
-        </div>
-        <div>
-          <p class="topic-english">Variable Stiffness</p>
-          <h3>变刚度系统</h3>
-          <p class="topic-description">从模块机理、材料与驱动，一直追踪到整机性能。</p>
-        </div>
-      </a>
-    
-      <a class="topic-card" href="/categories/%E7%A9%BA%E4%B8%AD%E6%9C%BA%E5%99%A8%E4%BA%BA/" data-reveal>
-        <div class="topic-card-top">
-          <span>(04)</span>
-          <span>专题笔记</span>
-        </div>
-        <div>
-          <p class="topic-english">Aerial Robotics</p>
-          <h3>空中机器人</h3>
-          <p class="topic-description">无人机系统设计，以及仿生跳跃、栖附和检测任务。</p>
-        </div>
-      </a>
-    
-      <a class="topic-card" href="/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E7%8E%B0/" data-reveal>
-        <div class="topic-card-top">
-          <span>(05)</span>
-          <span>实践记录</span>
-        </div>
-        <div>
-          <p class="topic-english">Build Logs</p>
-          <h3>工程实现</h3>
-          <p class="topic-description">MATLAB、STM32、CAN、电机与传感器的真实调试记录。</p>
-        </div>
-      </a>
-    
-  </div>
-</section>
-
-<section class="section-block writing-section">
-  <div class="section-heading" data-reveal>
-    <p><span>03</span> / ALL WRITING</p>
-    <p>1 篇文章</p>
+<section class="home-latest">
+  <div class="section-head">
+    <span class="section-label">LATEST</span>
+    <span class="section-meta">2026</span>
   </div>
   
-<div class="post-index-list">
+<ul class="post-list">
   
-    <a class="post-index-row" href="/2026/07/24/robotics-basics-homogeneous-transformation/" data-reveal>
-      <span class="post-index-number">01</span>
-      <span class="post-index-date">2026.07.24</span>
-      <span class="post-index-title">机器人学基础（一）：从坐标系到齐次变换矩阵</span>
-      <span class="post-index-arrow" aria-hidden="true">↗</span>
-    </a>
+    <li class="post-list-item">
+      <a href="/2026/08/13/bipedal-drone-leg-selection/">
+        <span class="post-number">01</span>
+        <span class="post-date">2026.08.13</span>
+        <span class="post-title">平面腿的机构与驱动选型</span>
+        <span class="post-type">笔记</span>
+      </a>
+    </li>
   
-</div>
+</ul>
 
 </section>
 
-<section class="closing-statement grid-guides" data-reveal>
-  <p class="closing-index">(04) / PRINCIPLE</p>
-  <p class="closing-copy">
-    <span>Make the mechanism</span>
-    <span>understandable.</span>
-  </p>
-  <p class="closing-note">把复杂系统拆成可以检查的坐标、结构、公式与代码。</p>
-</section>
+<nav class="home-index" aria-label="次级导航">
+  <a href="/archives/">归档</a>
+  <span aria-hidden="true">·</span>
+  <a href="/tags/">标签</a>
+  <span aria-hidden="true">·</span>
+  <a href="/about/">关于</a>
+  <span aria-hidden="true">·</span>
+  <a href="/portfolio/">作品集</a>
+</nav>
 
-      </main>
-      <footer class="site-footer">
-  <div class="footer-grid">
-    <p class="footer-index">A—J / 2026</p>
-    <p class="footer-note">Independent research notes on robotics and mechanical systems.</p>
-    <a class="footer-link" href="https://github.com/aymuua" target="_blank" rel="noopener noreferrer">
-      GitHub
-      <span aria-hidden="true">↗</span>
-    </a>
-    <button class="back-to-top" type="button" data-back-to-top>
-      返回顶部
-      <span aria-hidden="true">↑</span>
-    </button>
-  </div>
+  </main>
+  <footer class="site-footer">
+  <span>© 2026 aymuua</span>
+  <span class="footer-note">Robotics research notes</span>
+  <a class="footer-github" href="https://github.com/aymuua" target="_blank" rel="noopener noreferrer">GitHub →</a>
 </footer>
 
-    </div>
-    <div class="reading-progress" aria-hidden="true">
-      <span data-reading-progress></span>
-    </div>
 
-    <!-- Search overlay -->
-    <div class="search-overlay" data-search-overlay aria-hidden="true">
-      <div class="search-panel">
-        <div class="search-header">
-          <input
-            class="search-input"
-            type="text"
-            placeholder="搜索文章…"
-            data-search-input
-            autocomplete="off"
-          >
-          <button class="search-close" type="button" aria-label="关闭搜索" data-search-close>
-            <span>关闭</span>
-            <span aria-hidden="true">✕</span>
-          </button>
-        </div>
-        <div class="search-results" data-search-results>
-          <p class="search-hint">输入关键词开始搜索</p>
-        </div>
+  <div class="reading-progress" aria-hidden="true"><span data-reading-progress></span></div>
+
+  <div class="search-overlay" data-search-overlay aria-hidden="true">
+    <div class="search-panel">
+      <div class="search-head">
+        <span class="search-title">搜索</span>
+        <button class="search-close" type="button" data-search-close>关闭 ✕</button>
       </div>
+      <input class="search-input" type="text" placeholder="输入关键词…" data-search-input autocomplete="off">
+      <div class="search-results" data-search-results></div>
     </div>
+  </div>
 
-    <script src="/js/site.js?v=18e5396ec568" defer></script>
-  </body>
+  <script src="/js/site.js?v=fd8ea2d23c49" defer></script>
+</body>
 </html>
