@@ -35,7 +35,7 @@ mathjax: true
 | `title` | 任意 | 文章标题 |
 | `date` | `YYYY-MM-DD HH:mm:ss` | 发布日期，决定排序 |
 | `type` | `note` / `reflection` / `log` | 笔记（推导）· 心得（观点）· 日志（记录） |
-| `series` | 系列 id | 当前唯一：`robot-leg-design` |
+| `series` | 系列 id | `robot-leg-design` / `robotics-fundamentals` |
 | `tags` | 2–4 个 | 标签数组 |
 | `description` | 一句话 | 列表页摘要 + SEO |
 | `mathjax` | `true` / 省略 | 含公式时写 `true`，否则省略 |

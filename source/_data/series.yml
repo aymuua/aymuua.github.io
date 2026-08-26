@@ -4,3 +4,10 @@
   english: Robot Leg Design
   description: 腿足机器人腿部机构的设计、运动学、驱动与控制。
   status: 持续更新
+
+- id: robotics-fundamentals
+  index: "02"
+  name: 机器人学基础
+  english: Robotics Fundamentals
+  description: 从数学工具、空间运动到机器人运动学与动力学的基础知识。
+  status: 持续更新
