@@ -15,6 +15,11 @@
   const nextPost = currentIndex >= 0 && currentIndex < seriesPosts.length - 1 ? seriesPosts[currentIndex + 1] : null;
 
   const postTags = page.tags && page.tags.toArray ? page.tags.toArray() : [];
+  const articleToc = toc(page.content, {
+    list_number: false,
+    min_depth: 2,
+    max_depth: 3
+  });
 %>
 <article class="post">
   <header class="post-header">
@@ -42,16 +47,26 @@
       <%- page.content %>
     </div>
     <aside class="post-aside">
+      <% if (articleToc) { %>
+        <section class="aside-section">
+          <p class="aside-label">CONTENTS</p>
+          <nav class="article-toc" aria-label="本文目录">
+            <%- articleToc %>
+          </nav>
+        </section>
+      <% } %>
       <% if (currentSeries && seriesPosts.length > 1) { %>
-        <p class="aside-label">SERIES</p>
-        <nav class="series-toc" aria-label="系列目录">
-          <% seriesPosts.forEach(function(p, i) { %>
-            <a class="<%= i === currentIndex ? 'is-current' : '' %>" href="<%- url_for(p.path) %>">
-              <span class="series-toc-num"><%= String(i + 1).padStart(2, '0') %></span>
-              <span class="series-toc-title"><%= p.title %></span>
-            </a>
-          <% }); %>
-        </nav>
+        <section class="aside-section">
+          <p class="aside-label">SERIES</p>
+          <nav class="series-toc" aria-label="系列目录">
+            <% seriesPosts.forEach(function(p, i) { %>
+              <a class="<%= i === currentIndex ? 'is-current' : '' %>" href="<%- url_for(p.path) %>">
+                <span class="series-toc-num"><%= String(i + 1).padStart(2, '0') %></span>
+                <span class="series-toc-title"><%= p.title %></span>
+              </a>
+            <% }); %>
+          </nav>
+        </section>
       <% } %>
     </aside>
   </div>

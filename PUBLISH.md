@@ -42,7 +42,25 @@ mathjax: true
 
 ---
 
-## 2. 图片
+## 2. 代码高亮
+
+代码块必须在开头标注语言，主题会自动显示语言名并按对应语法高亮：
+
+````markdown
+```matlab
+A = [1, 2; 3, 4];
+```
+
+```python
+import numpy as np
+```
+````
+
+常用标记：`matlab`、`python`、`cpp`、`javascript`、`typescript`、`bash`、`yaml`、`json`。未标注的代码块会尝试自动识别，但建议始终显式标注，避免误判。
+
+---
+
+## 3. 图片
 
 - 目录：`source/images/`（可按系列再分：`source/images/robot-leg-design/`）
 - 引用：`![](/images/xxx.jpg)`
@@ -50,7 +68,7 @@ mathjax: true
 
 ---
 
-## 3. 开新系列
+## 4. 开新系列
 
 在 `source/_data/series.yml` 末尾加一条：
 
@@ -67,7 +85,7 @@ mathjax: true
 
 ---
 
-## 4. 发布命令
+## 5. 发布命令
 
 ```bash
 npx hexo server      # 本地预览 http://localhost:4000

@@ -9,6 +9,13 @@
   const searchInput = document.querySelector("[data-search-input]");
   const searchResults = document.querySelector("[data-search-results]");
   const searchClose = document.querySelector("[data-search-close]");
+  const articleTocLinks = Array.from(document.querySelectorAll(".article-toc .toc-link"));
+  const articleHeadings = articleTocLinks
+    .map((link) => {
+      const headingId = decodeURIComponent(link.hash.slice(1));
+      return { link, heading: document.getElementById(headingId) };
+    })
+    .filter((item) => item.heading);
 
   /* ----- Mobile navigation ----- */
 
@@ -42,6 +49,15 @@
       const scrollable = document.documentElement.scrollHeight - window.innerHeight;
       const ratio = scrollable > 0 ? Math.min(window.scrollY / scrollable, 1) : 0;
       progress.style.transform = `scaleX(${ratio})`;
+    }
+    if (articleHeadings.length) {
+      let activeItem = articleHeadings[0];
+      articleHeadings.forEach((item) => {
+        if (item.heading.getBoundingClientRect().top <= 140) activeItem = item;
+      });
+      articleHeadings.forEach((item) => {
+        item.link.classList.toggle("is-current", item === activeItem);
+      });
     }
   };
 
@@ -173,6 +189,44 @@
       e.preventDefault();
       openSearch();
     }
+  });
+
+  /* ----- Code block language labels ----- */
+
+  const codeLanguageNames = {
+    bash: "Bash",
+    c: "C",
+    cpp: "C++",
+    csharp: "C#",
+    css: "CSS",
+    html: "HTML",
+    java: "Java",
+    javascript: "JavaScript",
+    js: "JavaScript",
+    json: "JSON",
+    latex: "LaTeX",
+    matlab: "MATLAB",
+    plaintext: "Text",
+    python: "Python",
+    shell: "Shell",
+    sql: "SQL",
+    ts: "TypeScript",
+    typescript: "TypeScript",
+    xml: "XML",
+    yaml: "YAML",
+  };
+
+  document.querySelectorAll(".post-content figure.highlight").forEach((block) => {
+    const languageClass = Array.from(block.classList).find(
+      (className) => className !== "highlight"
+    );
+    const language = languageClass
+      ? codeLanguageNames[languageClass] || languageClass.toUpperCase()
+      : "Code";
+
+    block.dataset.language = language;
+    block.setAttribute("role", "region");
+    block.setAttribute("aria-label", `${language} 代码`);
   });
 
   /* ----- Spotify embed (hide when unreachable, e.g. no proxy) ----- */

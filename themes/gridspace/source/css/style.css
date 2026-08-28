@@ -668,6 +668,13 @@ button {
 .post-aside {
   position: sticky;
   top: 90px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.aside-section + .aside-section {
+  margin-top: 36px;
 }
 
 .aside-label {
@@ -711,6 +718,45 @@ button {
   font-family: var(--font-label);
   font-size: 13px;
   color: var(--fg-tertiary);
+}
+
+.article-toc {
+  border-left: 1px solid var(--line);
+}
+
+.article-toc .toc,
+.article-toc .toc-child {
+  list-style: none;
+}
+
+.article-toc .toc-child {
+  padding-left: 14px;
+}
+
+.article-toc .toc-link {
+  display: block;
+  margin-left: -1px;
+  padding: 6px 14px;
+  border-left: 1px solid transparent;
+  color: var(--fg-secondary);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.article-toc .toc-link:hover {
+  border-left-color: var(--fg);
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.article-toc .toc-link.is-current {
+  border-left-color: var(--fg);
+  color: var(--fg);
+  font-weight: 500;
+}
+
+.article-toc .toc-number {
+  display: none;
 }
 
 .post-footer {
@@ -857,6 +903,82 @@ button {
   font-size: 13px;
 }
 
+.post-content figure.highlight {
+  position: relative;
+  margin: 28px 0;
+  padding-top: 36px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #fafafa;
+}
+
+.post-content figure.highlight::before {
+  content: attr(data-language);
+  position: absolute;
+  inset: 0 0 auto;
+  height: 36px;
+  padding: 0 14px;
+  border-bottom: 1px solid var(--line);
+  background: #f3f3f1;
+  color: var(--fg-secondary);
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 35px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.post-content figure.highlight table {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 13px;
+  table-layout: auto;
+}
+
+.post-content figure.highlight td {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  vertical-align: top;
+}
+
+.post-content figure.highlight pre {
+  margin: 0;
+  padding: 16px 18px;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+  color: #252525;
+  font-size: 13px;
+  line-height: 1.65;
+  white-space: pre;
+}
+
+.post-content figure.highlight .gutter {
+  width: 1%;
+  border-right: 1px solid var(--line);
+  user-select: none;
+}
+
+.post-content figure.highlight .gutter pre {
+  min-width: 48px;
+  padding-right: 12px;
+  padding-left: 12px;
+  color: var(--fg-tertiary);
+  text-align: right;
+}
+
+.post-content figure.highlight .code {
+  display: block;
+  max-width: 0;
+  min-width: 100%;
+  overflow-x: auto;
+}
+
 .post-content table {
   width: 100%;
   margin: 24px 0;
@@ -897,6 +1019,14 @@ button {
   white-space: nowrap;
 }
 
+.post-content mjx-container[display="true"] {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0 !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
 /* ---------- Code highlighting (restrained editorial palette) ---------- */
 
 .post-content .comment,
@@ -907,17 +1037,21 @@ button {
 
 .post-content .keyword,
 .post-content .selector-tag,
-.post-content .literal {
+.post-content .literal,
+.post-content .doctag {
   color: #b3261e;
 }
 
 .post-content .string,
-.post-content .regexp {
+.post-content .regexp,
+.post-content .addition {
   color: #2e7d32;
 }
 
 .post-content .number,
-.post-content .built_in {
+.post-content .built_in,
+.post-content .bullet,
+.post-content .symbol {
   color: #1565c0;
 }
 
@@ -940,6 +1074,15 @@ button {
 
 .post-content .meta {
   color: var(--fg-secondary);
+}
+
+.post-content .deletion {
+  color: #b3261e;
+}
+
+.post-content .params,
+.post-content .punctuation {
+  color: #424242;
 }
 
 /* ---------- Search overlay ---------- */
@@ -1086,7 +1229,17 @@ button {
 
   .post-aside {
     position: static;
-    order: 2;
+    order: -1;
+    max-height: none;
+    overflow: visible;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .article-toc {
+    max-height: 320px;
+    overflow-y: auto;
+    scrollbar-width: thin;
   }
 }
 
@@ -1132,6 +1285,13 @@ button {
 
   .footer-note {
     margin-left: 0;
+  }
+
+  .post-content figure.highlight {
+    margin-right: calc(-1 * var(--gutter));
+    margin-left: calc(-1 * var(--gutter));
+    border-right: 0;
+    border-left: 0;
   }
 }
 
