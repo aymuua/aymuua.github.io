@@ -1,5 +1,5 @@
 ---
-title: 机器人学基础：向量、矩阵与特征值
+title: 机器人学基础：线性代数工具速览
 date: 2026-08-27 01:01:51
 type: note
 series: robotics-fundamentals
