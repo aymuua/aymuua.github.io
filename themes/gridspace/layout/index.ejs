@@ -14,7 +14,35 @@
   <%- partial('_partial/post-list') %>
 </section>
 
+<%
+  const newsIssues = site.pages.toArray()
+    .filter(function(item) { return item.news_issue === true; })
+    .sort(function(a, b) { return b.date.valueOf() - a.date.valueOf(); })
+    .slice(0, 3);
+%>
+<section class="home-news" aria-labelledby="home-news-title">
+  <div class="section-head">
+    <h2 class="section-label" id="home-news-title">最新消息学习</h2>
+    <a class="section-meta" href="<%- url_for('/news/') %>">查看全部 →</a>
+  </div>
+  <% if (newsIssues.length) { %>
+    <div class="news-list">
+      <% newsIssues.forEach(function(issue) { %>
+        <a class="news-row" href="<%- url_for(issue.path) %>">
+          <time class="news-row-date" datetime="<%= date(issue.date, 'YYYY-MM-DD') %>"><%= date(issue.date, 'YYYY.MM.DD') %></time>
+          <span class="news-row-title"><%= issue.title %></span>
+          <span class="news-row-arrow" aria-hidden="true">↗</span>
+        </a>
+      <% }); %>
+    </div>
+  <% } else { %>
+    <p class="news-empty">每日精选将在这里更新。</p>
+  <% } %>
+</section>
+
 <nav class="home-index" aria-label="次级导航">
+  <a href="<%- url_for('/news/') %>">最新消息学习</a>
+  <span aria-hidden="true">·</span>
   <a href="<%- url_for('/archives/') %>">归档</a>
   <span aria-hidden="true">·</span>
   <a href="<%- url_for('/tags/') %>">标签</a>

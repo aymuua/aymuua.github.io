@@ -3,8 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "prebuild": "node tools/check-news.cjs",
     "build": "hexo generate",
     "clean": "hexo clean",
+    "predeploy": "node tools/check-news.cjs",
     "deploy": "hexo deploy",
     "server": "hexo server"
   },

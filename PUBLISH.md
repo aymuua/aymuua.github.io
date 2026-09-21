@@ -92,3 +92,5 @@ npx hexo server      # 本地预览 http://localhost:4000
 npx hexo generate    # 生成静态文件
 npx hexo deploy      # 部署到 GitHub Pages
 ```
+
+每日消息栏目由独立的定时任务维护；内容格式、来源核验和失败时的处理规则见 [`NEWS_AUTOMATION.md`](NEWS_AUTOMATION.md)。

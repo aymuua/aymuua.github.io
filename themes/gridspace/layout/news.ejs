@@ -1,0 +1,27 @@
+<%
+  const issues = page.issues || [];
+%>
+<section class="news-page">
+  <header class="page-head">
+    <span class="page-kicker">DAILY BRIEFING</span>
+    <h1>最新消息学习</h1>
+    <p class="page-deck">追踪机器人与 AI 的重要进展。每期只保留中文解读、为什么值得关注和可查证的来源。</p>
+    <p class="page-count"><%= issues.length %> 期</p>
+  </header>
+  <% if (issues.length) { %>
+    <div class="news-list">
+      <% issues.forEach(function(issue) { %>
+        <a class="news-row" href="<%- url_for(issue.path) %>">
+          <time class="news-row-date" datetime="<%= date(issue.date, 'YYYY-MM-DD') %>"><%= date(issue.date, 'YYYY.MM.DD') %></time>
+          <span class="news-row-main">
+            <span class="news-row-title"><%= issue.title %></span>
+            <% if (issue.description) { %><span class="news-row-deck"><%= issue.description %></span><% } %>
+          </span>
+          <span class="news-row-arrow" aria-hidden="true">↗</span>
+        </a>
+      <% }); %>
+    </div>
+  <% } else { %>
+    <p class="news-empty">首期精选正在准备中。</p>
+  <% } %>
+</section>

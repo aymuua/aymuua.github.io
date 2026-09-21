@@ -3,6 +3,8 @@ menu:
     url: /
   - label: 系列
     url: /series/
+  - label: 最新消息学习
+    url: /news/
   - label: 标签
     url: /tags/
   - label: 归档
