@@ -314,6 +314,93 @@ button {
   padding: 64px 0 48px;
 }
 
+.home-news {
+  padding: 48px 0 0;
+}
+
+.home-news .section-head .section-meta:hover {
+  color: var(--fg);
+}
+
+/* ---------- Daily news ---------- */
+
+.news-page,
+.news-detail {
+  padding: 128px 0;
+}
+
+.news-list {
+  border-top: 1px solid var(--line);
+}
+
+.news-row {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr) 20px;
+  align-items: baseline;
+  gap: 24px;
+  padding: 24px 4px;
+  border-bottom: 1px solid var(--line);
+}
+
+.news-row:hover {
+  text-decoration: none;
+}
+
+.news-row:hover .news-row-title {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.news-row-date,
+.news-row-arrow {
+  font-family: var(--font-label);
+  font-size: 14px;
+  color: var(--fg-tertiary);
+}
+
+.news-row-title {
+  display: block;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.news-row-deck {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+  color: var(--fg-secondary);
+}
+
+.news-empty {
+  padding: 28px 4px;
+  color: var(--fg-tertiary);
+}
+
+.news-prose {
+  max-width: 760px;
+  border-top: 1px solid var(--fg);
+  padding-top: 12px;
+}
+
+.news-prose h2 {
+  border-top: 1px solid var(--line);
+  padding-top: 36px;
+}
+
+.news-prose h2:first-child {
+  border-top: 0;
+}
+
+.news-prose h3 {
+  font-size: 15px;
+  font-family: var(--font-label);
+  letter-spacing: 0.04em;
+}
+
+.news-prose p:last-child {
+  margin-bottom: 0;
+}
+
 /* ---------- Home index (secondary links) ---------- */
 
 .home-index {
@@ -1254,6 +1341,15 @@ button {
   .series-post-row {
     grid-template-columns: 1fr auto;
     gap: 8px;
+  }
+
+  .news-row {
+    grid-template-columns: 1fr 20px;
+    gap: 8px;
+  }
+
+  .news-row-date {
+    grid-column: 1 / -1;
   }
 
   .post-number,
