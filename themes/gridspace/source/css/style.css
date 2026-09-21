@@ -401,6 +401,13 @@ button {
   margin-bottom: 0;
 }
 
+.news-prose img {
+  width: 100%;
+  margin: 8px 0 20px;
+  border: 1px solid var(--line);
+  background: #f7f7f5;
+}
+
 /* ---------- Home index (secondary links) ---------- */
 
 .home-index {
