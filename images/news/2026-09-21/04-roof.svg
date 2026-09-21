@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">斜屋顶机器人接触关系示意</title>
+  <desc id="desc">人形机器人在倾斜屋顶上保持双足接触，一只手靠近屋面作业位置。</desc>
+  <rect width="960" height="540" fill="#f7f7f5"/>
+  <path d="M44 417 482 240l435 177" fill="none" stroke="#111" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M120 417v85h725v-85" fill="none" stroke="#777" stroke-width="4"/>
+  <circle cx="492" cy="100" r="29" fill="none" stroke="#111" stroke-width="4"/>
+  <path d="M492 130 473 226l-38 71m38-71 61 71m-61-71-84-2m84 2 84 13" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M435 297 363 307m171-10 64 24" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="366" cy="307" r="10" fill="#111"/><circle cx="596" cy="320" r="10" fill="#111"/>
+  <path d="M381 226 350 244m214-7 31 9" fill="none" stroke="#777" stroke-width="3" stroke-dasharray="5 7"/>
+  <circle cx="389" cy="224" r="11" fill="#f7f7f5" stroke="#111" stroke-width="3"/>
+</svg>

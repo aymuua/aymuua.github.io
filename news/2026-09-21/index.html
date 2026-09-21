@@ -6,11 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#ffffff">
 <title>机器人与 AI 每日观察｜2026-09-21 — Aymuuajasmine&#39;s Space</title>
-<meta name="description" content="仿生执行器、外骨骼实景评测、世界模型、斜屋顶机器人与扩散语言模型。">
+<meta name="description" content="记录机器人学、线性代数、并联机器人与深度学习的研究笔记。">
 <meta name="author" content="aymuua">
 <meta property="og:type" content="website">
 <meta property="og:title" content="机器人与 AI 每日观察｜2026-09-21 — Aymuuajasmine&#39;s Space">
-<meta property="og:description" content="仿生执行器、外骨骼实景评测、世界模型、斜屋顶机器人与扩散语言模型。">
+<meta property="og:description" content="记录机器人学、线性代数、并联机器人与深度学习的研究笔记。">
 <meta property="og:url" content="https://aymuua.github.io/news/2026-09-21/index.html">
 <meta property="og:site_name" content="Aymuuajasmine&#39;s Space">
 <link rel="canonical" href="https://aymuua.github.io/news/2026-09-21/index.html">
@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://font.sec.miui.com/font/css?family=MiSans:400,450,700:Chinese_Simplify,Latin&display=swap">
-<link rel="stylesheet" href="/css/style.css?v=e92c3483983b">
+<link rel="stylesheet" href="/css/style.css?v=17f7d545b902">
 <script>document.documentElement.classList.add('js');</script>
 
 <meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
@@ -165,23 +165,26 @@ mjx-container[display="true"] + br {
   <header class="page-head">
     <span class="page-kicker">DAILY BRIEFING · 2026.09.21</span>
     <h1>机器人与 AI 每日观察｜2026-09-21</h1>
-    <p class="page-deck">仿生执行器、外骨骼实景评测、世界模型、斜屋顶机器人与扩散语言模型。</p>
   </header>
   <div class="news-prose post-content">
-    <p>这期从「每日双语新闻」中选取五条研究与行业动态。部分论文发表于数日前或数月前，以下分别注明时间；它们不都代表今天刚发布的成果。</p>
-<h2 id="01｜仿生收缩：几何网络放大材料响应"><a href="#01｜仿生收缩：几何网络放大材料响应" class="headerlink" title="01｜仿生收缩：几何网络放大材料响应"></a>01｜仿生收缩：几何网络放大材料响应</h2><h3 id="中文解读"><a href="#中文解读" class="headerlink" title="中文解读"></a>中文解读</h3><p>今年 6 月发表的一项研究分析了单细胞生物 <em>Spirostomum ambiguum</em> 的超快速收缩。其 Sfi1–centrin 蛋白组成网状结构，钙离子触发局部变化后，网络几何把微观变化转化为整体变形。它值得作为仿生机构案例重新阅读，但不是今天的新论文。</p>
+    <h2 id="01｜仿生收缩：几何网络放大材料响应"><a href="#01｜仿生收缩：几何网络放大材料响应" class="headerlink" title="01｜仿生收缩：几何网络放大材料响应"></a>01｜仿生收缩：几何网络放大材料响应</h2><p><img src="/images/news/2026-09-21/01-mesh.svg" alt="网状机构由展开到收缩的概念示意图"></p>
+<h3 id="解读"><a href="#解读" class="headerlink" title="解读"></a>解读</h3><p>今年 6 月发表的一项研究分析了单细胞生物 <em>Spirostomum ambiguum</em> 的超快速收缩。其 Sfi1–centrin 蛋白组成网状结构，钙离子触发局部变化后，网络几何把微观变化转化为整体变形。它值得作为仿生机构案例重新阅读，但不是今天的新论文。</p>
 <h3 id="为什么值得关注"><a href="#为什么值得关注" class="headerlink" title="为什么值得关注"></a>为什么值得关注</h3><p>机器人执行器设计可以从中借鉴「材料状态变化—网络几何重构—宏观机械输出」这条思路。这里的启发是结构与材料的耦合，并不意味着这种生物机制已能直接做成人工肌肉。</p>
 <h3 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h3><p><a target="_blank" rel="noopener" href="https://pubmed.ncbi.nlm.nih.gov/42213749/">PNAS 论文记录（PubMed）</a></p>
-<h2 id="02｜外骨骼走进实景应用考核"><a href="#02｜外骨骼走进实景应用考核" class="headerlink" title="02｜外骨骼走进实景应用考核"></a>02｜外骨骼走进实景应用考核</h2><h3 id="中文解读-1"><a href="#中文解读-1" class="headerlink" title="中文解读"></a>中文解读</h3><p>9 月 20 日在杭州启动的智能机器人应用技能大展，展示了全地形自适应 AI 外骨骼和一款重约 2.2 千克的助力外骨骼。活动将设备放入特种作业、商业、民生服务等场景，考察作业精度、适配能力与稳定性。产品性能仍主要依据现场展示与公开报道，不能等同于独立临床验证。</p>
+<h2 id="02｜外骨骼走进实景应用考核"><a href="#02｜外骨骼走进实景应用考核" class="headerlink" title="02｜外骨骼走进实景应用考核"></a>02｜外骨骼走进实景应用考核</h2><p><img src="/images/news/2026-09-21/02-exoskeleton.svg" alt="外骨骼关节与地形适应的概念示意图"></p>
+<h3 id="解读-1"><a href="#解读-1" class="headerlink" title="解读"></a>解读</h3><p>9 月 20 日在杭州启动的智能机器人应用技能大展，展示了全地形自适应 AI 外骨骼和一款重约 2.2 千克的助力外骨骼。活动将设备放入特种作业、商业、民生服务等场景，考察作业精度、适配能力与稳定性。产品性能仍主要依据现场展示与公开报道，不能等同于独立临床验证。</p>
 <h3 id="为什么值得关注-1"><a href="#为什么值得关注-1" class="headerlink" title="为什么值得关注"></a>为什么值得关注</h3><p>可穿戴机器人的关键问题逐渐从「能否产生辅助力」转向「能否识别步态与环境，并在正确时机稳定、柔顺地助力」。真实场景评测比单一实验室指标更能暴露系统集成问题。</p>
 <h3 id="来源-1"><a href="#来源-1" class="headerlink" title="来源"></a>来源</h3><p><a target="_blank" rel="noopener" href="https://ori.hangzhou.com.cn/ornews/content/2026-09/20/content_9312098.htm">杭州网：智能机器人应用技能大展浙江站</a></p>
-<h2 id="03｜世界模型：生成场景与控制机器人之间仍有距离"><a href="#03｜世界模型：生成场景与控制机器人之间仍有距离" class="headerlink" title="03｜世界模型：生成场景与控制机器人之间仍有距离"></a>03｜世界模型：生成场景与控制机器人之间仍有距离</h2><h3 id="中文解读-2"><a href="#中文解读-2" class="headerlink" title="中文解读"></a>中文解读</h3><p>9 月 20 日的行业报道讨论了世界模型公司的产品方向。World Labs 的 Marble 已能由文本、图像和视频创建、编辑三维世界；但公开能力主要仍是空间生成与场景交互，不能直接证明其能够可靠预测机器人动作的物理后果，更不能等同于真机闭环控制。</p>
+<h2 id="03｜世界模型：生成场景与控制机器人之间仍有距离"><a href="#03｜世界模型：生成场景与控制机器人之间仍有距离" class="headerlink" title="03｜世界模型：生成场景与控制机器人之间仍有距离"></a>03｜世界模型：生成场景与控制机器人之间仍有距离</h2><p><img src="/images/news/2026-09-21/03-world-model.svg" alt="三维场景生成到机器人控制的概念示意图"></p>
+<h3 id="解读-2"><a href="#解读-2" class="headerlink" title="解读"></a>解读</h3><p>9 月 20 日的行业报道讨论了世界模型公司的产品方向。World Labs 的 Marble 已能由文本、图像和视频创建、编辑三维世界；但公开能力主要仍是空间生成与场景交互，不能直接证明其能够可靠预测机器人动作的物理后果，更不能等同于真机闭环控制。</p>
 <h3 id="为什么值得关注-2"><a href="#为什么值得关注-2" class="headerlink" title="为什么值得关注"></a>为什么值得关注</h3><p>阅读世界模型成果时，可以分开考察三件事：是否能生成环境、是否能预测动作导致的状态变化、是否已经用于实际控制。对机器人研究而言，后两项比演示画面更关键。</p>
 <h3 id="来源-2"><a href="#来源-2" class="headerlink" title="来源"></a>来源</h3><p><a target="_blank" rel="noopener" href="https://techcrunch.com/2026/09/20/world-model-companies-are-keeping-a-lot-of-secrets/">TechCrunch：世界模型公司的产品路径</a> · <a target="_blank" rel="noopener" href="https://www.worldlabs.ai/blog/marble-world-model">World Labs：Marble 官方介绍</a></p>
-<h2 id="04｜人形机器人在斜屋顶上保持工作关系"><a href="#04｜人形机器人在斜屋顶上保持工作关系" class="headerlink" title="04｜人形机器人在斜屋顶上保持工作关系"></a>04｜人形机器人在斜屋顶上保持工作关系</h2><h3 id="中文解读-3"><a href="#中文解读-3" class="headerlink" title="中文解读"></a>中文解读</h3><p>9 月 17 日提交的一篇预印本提出了面向斜屋顶作业的全身运动学习方法：先将人的动作映射到 Unitree G1，再借助屋顶几何模型修正支撑接触和工作位置，最后用强化学习提高执行时的稳定性。论文报告了上坡行走、钉枪操作、锤击和弯腰等真机动作；这些是论文作者的实验结果，尚非大规模部署验证。</p>
+<h2 id="04｜人形机器人在斜屋顶上保持工作关系"><a href="#04｜人形机器人在斜屋顶上保持工作关系" class="headerlink" title="04｜人形机器人在斜屋顶上保持工作关系"></a>04｜人形机器人在斜屋顶上保持工作关系</h2><p><img src="/images/news/2026-09-21/04-roof.svg" alt="人形机器人在倾斜屋顶保持接触关系的概念示意图"></p>
+<h3 id="解读-3"><a href="#解读-3" class="headerlink" title="解读"></a>解读</h3><p>9 月 17 日提交的一篇预印本提出了面向斜屋顶作业的全身运动学习方法：先将人的动作映射到 Unitree G1，再借助屋顶几何模型修正支撑接触和工作位置，最后用强化学习提高执行时的稳定性。论文报告了上坡行走、钉枪操作、锤击和弯腰等真机动作；这些是论文作者的实验结果，尚非大规模部署验证。</p>
 <h3 id="为什么值得关注-3"><a href="#为什么值得关注-3" class="headerlink" title="为什么值得关注"></a>为什么值得关注</h3><p>全身控制不应只追求「动作看起来像人」，还要保证脚、手、工具与环境之间的接触和距离关系正确。这把运动模仿提升到了任务约束层面。</p>
 <h3 id="来源-3"><a href="#来源-3" class="headerlink" title="来源"></a>来源</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2609.20558">arXiv：斜屋顶全身运动学习预印本</a></p>
-<h2 id="05｜扩散语言模型探索混合架构"><a href="#05｜扩散语言模型探索混合架构" class="headerlink" title="05｜扩散语言模型探索混合架构"></a>05｜扩散语言模型探索混合架构</h2><h3 id="中文解读-4"><a href="#中文解读-4" class="headerlink" title="中文解读"></a>中文解读</h3><p>另一篇 9 月 17 日提交的预印本将 Qwen3.5 的混合注意力架构改造成扩散语言模型。作者在多个参数规模上实验，报告达到相同训练损失所需的训练 token 约为全注意力对照组的一半，并展示了并行解码表现。这是研究团队的预印本结果，并非 Qwen 官方发布的新产品。</p>
+<h2 id="05｜扩散语言模型探索混合架构"><a href="#05｜扩散语言模型探索混合架构" class="headerlink" title="05｜扩散语言模型探索混合架构"></a>05｜扩散语言模型探索混合架构</h2><p><img src="/images/news/2026-09-21/05-diffusion.svg" alt="语言模型并行迭代修正的概念示意图"></p>
+<h3 id="解读-4"><a href="#解读-4" class="headerlink" title="解读"></a>解读</h3><p>另一篇 9 月 17 日提交的预印本将 Qwen3.5 的混合注意力架构改造成扩散语言模型。作者在多个参数规模上实验，报告达到相同训练损失所需的训练 token 约为全注意力对照组的一半，并展示了并行解码表现。这是研究团队的预印本结果，并非 Qwen 官方发布的新产品。</p>
 <h3 id="为什么值得关注-4"><a href="#为什么值得关注-4" class="headerlink" title="为什么值得关注"></a>为什么值得关注</h3><p>AI 系统的进步不只取决于模型规模。计算组织方式、推理延迟和效率，也会影响未来具身智能系统能否在真实机器人上运行。</p>
 <h3 id="来源-4"><a href="#来源-4" class="headerlink" title="来源"></a>来源</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2609.20751">arXiv：dQwen3.5 预印本</a></p>
 
