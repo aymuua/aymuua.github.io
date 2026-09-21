@@ -7,7 +7,7 @@ const root = path.join(__dirname, '..', 'source', 'news');
 if (!fs.existsSync(root)) process.exit(0);
 
 const errors = [];
-const forbidden = /(?:\bEnglish\s*[.:：]|\bVocabulary\b|可积累表达|词汇表达|中文解读|Language Review|今日英语复习|今日翻译自测||<\s*(?:script|iframe|object|embed)\b|\bon\w+\s*=|javascript:|data:)/i;
+const forbidden = /(?:\bEnglish\s*[.:：]|\bVocabulary\b|可积累表达|词汇表达|中文解读|Language Review|今日英语复习|今日翻译自测||!\[[^\]]*\]\([^)]+\)|<\s*(?:script|iframe|object|embed|img|picture|svg|figure)\b|\bon\w+\s*=|javascript:|data:)/i;
 
 for (const entry of fs.readdirSync(root, { withFileTypes: true })) {
   if (!entry.isDirectory()) continue;
@@ -40,7 +40,7 @@ for (const entry of fs.readdirSync(root, { withFileTypes: true })) {
     errors.push(`${issueDate}: 不要添加整期主题罗列式简介`);
   }
   if (forbidden.test(raw)) {
-    errors.push(`${issueDate}: 含英文摘要、词汇练习或对话专用标记`);
+    errors.push(`${issueDate}: 含图片、英文摘要、词汇练习或对话专用标记`);
   }
   const sections = body.split(/^##\s+/m);
   if (sections[0].trim()) {
@@ -56,18 +56,6 @@ for (const entry of fs.readdirSync(root, { withFileTypes: true })) {
     }
     if (!/\]\(https:\/\/[^\s)]+\)/.test(item)) {
       errors.push(`${issueDate} 第 ${index + 1} 条: 缺少 HTTPS 来源链接`);
-    }
-    for (const image of item.matchAll(/!\[([^\]]*)\]\(([^\s)]+)\)/g)) {
-      const localPath = image[2];
-      const imagePath = path.join(__dirname, '..', 'source', localPath.slice(1));
-      if (!image[1].trim() || !localPath.startsWith(`/images/news/${issueDate}/`) || localPath.includes('..') || !/\.(?:svg|png|webp)$/i.test(localPath) || !fs.existsSync(imagePath)) {
-        errors.push(`${issueDate} 第 ${index + 1} 条: 图片缺少替代文本、路径错误或文件不存在`);
-      } else if (/\.svg$/i.test(localPath)) {
-        const svg = fs.readFileSync(imagePath, 'utf8');
-        if (/<\s*(?:script|foreignObject|image)\b|\bon\w+\s*=|(?:href|xlink:href)\s*=\s*["'](?!#)|url\(\s*["']?(?:https?:|data:)/i.test(svg)) {
-          errors.push(`${issueDate} 第 ${index + 1} 条: SVG 含不安全的脚本或外部资源`);
-        }
-      }
     }
   });
 }
