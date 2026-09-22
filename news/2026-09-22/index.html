@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>机器人与 AI 每日观察｜2026-09-22 — Aymuuajasmine&#39;s Space</title>
+<meta name="description" content="记录机器人学、线性代数、并联机器人与深度学习的研究笔记。">
+<meta name="author" content="aymuua">
+<meta property="og:type" content="website">
+<meta property="og:title" content="机器人与 AI 每日观察｜2026-09-22 — Aymuuajasmine&#39;s Space">
+<meta property="og:description" content="记录机器人学、线性代数、并联机器人与深度学习的研究笔记。">
+<meta property="og:url" content="https://aymuua.github.io/news/2026-09-22/index.html">
+<meta property="og:site_name" content="Aymuuajasmine&#39;s Space">
+<link rel="canonical" href="https://aymuua.github.io/news/2026-09-22/index.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://font.sec.miui.com/font/css?family=MiSans:400,450,700:Chinese_Simplify,Latin&display=swap">
+<link rel="stylesheet" href="/css/style.css?v=e92c3483983b">
+<script>document.documentElement.classList.add('js');</script>
+
+<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+<body class="layout-news-detail">
+  <header class="site-header">
+  <a class="brand" href="/">Aymuuajasmine&#39;s Space</a>
+  <nav class="site-nav" id="site-navigation" aria-label="主导航" data-site-navigation>
+    
+      <a class="nav-link" href="/">首页</a>
+    
+      <a class="nav-link" href="/series/">系列</a>
+    
+      <a class="nav-link is-current" href="/news/">最新消息学习</a>
+    
+      <a class="nav-link" href="/tags/">标签</a>
+    
+      <a class="nav-link" href="/archives/">归档</a>
+    
+      <a class="nav-link" href="/about/">关于</a>
+    
+      <a class="nav-link" href="/portfolio/">作品集</a>
+    
+  </nav>
+  <div class="header-actions">
+    <button class="search-toggle" type="button" data-search-toggle>搜索 <span>⌘K</span></button>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-navigation">菜单</button>
+  </div>
+</header>
+
+  <main id="main-content" class="site-main">
+    <article class="news-detail">
+  <header class="page-head">
+    <span class="page-kicker">DAILY BRIEFING · 2026.09.22</span>
+    <h1>机器人与 AI 每日观察｜2026-09-22</h1>
+  </header>
+  <div class="news-prose post-content">
+    <h2 id="01｜LIMBO-将安全边界内化进人形机器人策略"><a href="#01｜LIMBO-将安全边界内化进人形机器人策略" class="headerlink" title="01｜LIMBO 将安全边界内化进人形机器人策略"></a>01｜LIMBO 将安全边界内化进人形机器人策略</h2><h3 id="解读"><a href="#解读" class="headerlink" title="解读"></a>解读</h3><p>9 月 18 日提交的一篇预印本提出 LIMBO：先围绕固定的基础控制器，从黑箱状态转移和失败条件中学习状态—动作控制屏障函数，再把安全信息用于训练任务策略。作者在 29 自由度人形机器人上演示了躲避来球和从低矮障碍物下方通过，并报告策略能够在不部署在线安全过滤器的情况下转移到真机。这是论文作者的实验结果，尚需更多任务与平台验证。</p>
+<h3 id="为什么值得关注"><a href="#为什么值得关注" class="headerlink" title="为什么值得关注"></a>为什么值得关注</h3><p>许多机器人系统把安全作为任务控制器之外的修正层。LIMBO 探索的是把可恢复边界直接融入策略学习，让任务性能与安全约束在训练阶段结合。它为控制屏障函数与强化学习的融合提供了一条具体路线。</p>
+<h3 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2609.22075">arXiv：LIMBO 预印本</a></p>
+<h2 id="02｜占空比比步态标签更能预测四足运动鲁棒性"><a href="#02｜占空比比步态标签更能预测四足运动鲁棒性" class="headerlink" title="02｜占空比比步态标签更能预测四足运动鲁棒性"></a>02｜占空比比步态标签更能预测四足运动鲁棒性</h2><h3 id="解读-1"><a href="#解读-1" class="headerlink" title="解读"></a>解读</h3><p>同样在 9 月 18 日提交的一篇预印本研究了占空比，也就是一个步态周期内足端保持接触地面的时间比例。作者分别使用全身轨迹优化与线性二次调节反馈、学习型运动控制器和质心模型预测控制进行分析，报告占空比比「行走」或「小跑」等离散标签更能预测局部误差收敛；这一趋势也在狭窄地形的四足机器人真机实验中得到验证。</p>
+<h3 id="为什么值得关注-1"><a href="#为什么值得关注-1" class="headerlink" title="为什么值得关注"></a>为什么值得关注</h3><p>步态名称只能描述运动类别，不能完整反映支撑时间、速度和步宽等连续参数。把占空比作为低维控制变量，有望让高层规划器根据扰动和地形更直接地调整稳定性，而不必只在固定步态之间切换。</p>
+<h3 id="来源-1"><a href="#来源-1" class="headerlink" title="来源"></a>来源</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2609.22073">arXiv：四足机器人占空比研究预印本</a></p>
+<h2 id="03｜SeeQ-用当前子任务缩短机器人价值判断跨度"><a href="#03｜SeeQ-用当前子任务缩短机器人价值判断跨度" class="headerlink" title="03｜SeeQ 用当前子任务缩短机器人价值判断跨度"></a>03｜SeeQ 用当前子任务缩短机器人价值判断跨度</h2><h3 id="解读-2"><a href="#解读-2" class="headerlink" title="解读"></a>解读</h3><p>9 月 18 日提交的 SeeQ 预印本把长时域机器人任务拆解到当前子任务层级，不再只用最终的稀疏任务奖励学习价值函数。模型先用自然语言预测当前处于哪个子任务，再估计候选动作的价值。作者在两个双臂机器人平台的四项真实操作任务上报告，这种方法改善了从多个候选动作中进行策略引导的效果。</p>
+<h3 id="为什么值得关注-2"><a href="#为什么值得关注-2" class="headerlink" title="为什么值得关注"></a>为什么值得关注</h3><p>长任务中的早期动作与最终成功相隔很远，容易造成信用分配困难。将价值判断限制在当前阶段，可以缩短学习跨度，也为「任务规划—子任务识别—价值评估—动作执行」的分层具身智能架构提供了可验证的实现方式。</p>
+<h3 id="来源-2"><a href="#来源-2" class="headerlink" title="来源"></a>来源</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2609.22085">arXiv：SeeQ 预印本</a></p>
+<h2 id="04｜2025-年全球人形机器人销量约为-7000-台"><a href="#04｜2025-年全球人形机器人销量约为-7000-台" class="headerlink" title="04｜2025 年全球人形机器人销量约为 7000 台"></a>04｜2025 年全球人形机器人销量约为 7000 台</h2><h3 id="解读-3"><a href="#解读-3" class="headerlink" title="解读"></a>解读</h3><p>Reuters 9 月 21 日援引国际机器人联合会汇编的数据称，2025 年全球面向工业和专业服务用途的人形机器人销量约为 7000 台。作为规模参照，2024 年全球约安装 54.2 万台传统工业机器人，并售出约 19.9 万台专业服务机器人。报道同时指出，2025 年售出的人形机器人中有许多由研究机构或企业用于研发和生成训练数据，而非直接投入生产性劳动。</p>
+<h3 id="为什么值得关注-3"><a href="#为什么值得关注-3" class="headerlink" title="为什么值得关注"></a>为什么值得关注</h3><p>这组数据为人形机器人商业化提供了比演示视频更可靠的现实尺度。行业仍处在研究、试点和小批量部署阶段，真正决定规模化应用的因素将包括可靠性、维护成本、失败恢复能力和与既有生产系统的集成。</p>
+<h3 id="来源-3"><a href="#来源-3" class="headerlink" title="来源"></a>来源</h3><p><a target="_blank" rel="noopener" href="https://www.uol.com.br/tilt/noticias/reuters/2026/09/21/vendas-de-robos-humanoides-atingiram-7000-unidades-em-todo-o-mundo-no-ano-passado.amp.htm">Reuters 报道（UOL 刊载）：全球人形机器人销量</a></p>
+<h2 id="05｜OpenAI-提议建立前沿-AI-国际技术标准"><a href="#05｜OpenAI-提议建立前沿-AI-国际技术标准" class="headerlink" title="05｜OpenAI 提议建立前沿 AI 国际技术标准"></a>05｜OpenAI 提议建立前沿 AI 国际技术标准</h2><h3 id="解读-4"><a href="#解读-4" class="headerlink" title="解读"></a>解读</h3><p>OpenAI 9 月 21 日发布政策文章，主张由美国推动各国合作，为前沿 AI 和自动化 AI 研究建立全球技术标准。其建议包括统一能力测量与评估基础、规定何时需要人工审查，以及建立事故分类、追踪和报告阈值。OpenAI 同时说明，这些技术标准本身不等同于模型许可、发布前强制审查或批准制度，是否纳入法律仍由各国政府决定。</p>
+<h3 id="为什么值得关注-4"><a href="#为什么值得关注-4" class="headerlink" title="为什么值得关注"></a>为什么值得关注</h3><p>前沿 AI 安全正在从原则讨论转向可测量、可报告的工程制度。若未来智能体进一步控制机器人、车辆或实验设备，能力评估、事故分级和人工监督机制也需要与物理安全约束衔接。需要注意，这仍是 OpenAI 的政策主张，而不是已经达成的国际标准。</p>
+<h3 id="来源-4"><a href="#来源-4" class="headerlink" title="来源"></a>来源</h3><p><a target="_blank" rel="noopener" href="https://openai.com/index/building-standards-next-phase-ai/">OpenAI：为下一阶段 AI 建立标准</a></p>
+
+  </div>
+  <a class="back-link" href="/news/">← 全部消息</a>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="spotify-player" data-spotify-player>
+    <iframe
+      src="https://open.spotify.com/embed/playlist/2clx6UddqXHPet6IJ3cv1c?utm_source=generator&theme=1"
+      width="100%"
+      height="152"
+      frameborder="0"
+      allowfullscreen
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"
+    ></iframe>
+  </div>
+  <div class="footer-meta">
+    <span>© 2026 aymuua</span>
+    <span class="footer-note">Robotics research notes</span>
+    <a class="footer-github" href="https://github.com/aymuua" target="_blank" rel="noopener noreferrer">GitHub →</a>
+  </div>
+</footer>
+
+
+  <div class="reading-progress" aria-hidden="true"><span data-reading-progress></span></div>
+
+  <div class="search-overlay" data-search-overlay aria-hidden="true">
+    <div class="search-panel">
+      <div class="search-head">
+        <span class="search-title">搜索</span>
+        <button class="search-close" type="button" data-search-close>关闭 ✕</button>
+      </div>
+      <input class="search-input" type="text" placeholder="输入关键词…" data-search-input autocomplete="off">
+      <div class="search-results" data-search-results></div>
+    </div>
+  </div>
+
+  <script src="/js/site.js?v=42ace8e65372" defer></script>
+</body>
+</html>
