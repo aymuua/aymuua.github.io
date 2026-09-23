@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>机器人与 AI 每日观察｜2026-09-23 — Aymuuajasmine&#39;s Space</title>
+<meta name="description" content="记录机器人学、线性代数、并联机器人与深度学习的研究笔记。">
+<meta name="author" content="aymuua">
+<meta property="og:type" content="website">
+<meta property="og:title" content="机器人与 AI 每日观察｜2026-09-23 — Aymuuajasmine&#39;s Space">
+<meta property="og:description" content="记录机器人学、线性代数、并联机器人与深度学习的研究笔记。">
+<meta property="og:url" content="https://aymuua.github.io/news/2026-09-23/index.html">
+<meta property="og:site_name" content="Aymuuajasmine&#39;s Space">
+<link rel="canonical" href="https://aymuua.github.io/news/2026-09-23/index.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://font.sec.miui.com/font/css?family=MiSans:400,450,700:Chinese_Simplify,Latin&display=swap">
+<link rel="stylesheet" href="/css/style.css?v=e92c3483983b">
+<script>document.documentElement.classList.add('js');</script>
+
+<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+<body class="layout-news-detail">
+  <header class="site-header">
+  <a class="brand" href="/">Aymuuajasmine&#39;s Space</a>
+  <nav class="site-nav" id="site-navigation" aria-label="主导航" data-site-navigation>
+    
+      <a class="nav-link" href="/">首页</a>
+    
+      <a class="nav-link" href="/series/">系列</a>
+    
+      <a class="nav-link is-current" href="/news/">最新消息学习</a>
+    
+      <a class="nav-link" href="/tags/">标签</a>
+    
+      <a class="nav-link" href="/archives/">归档</a>
+    
+      <a class="nav-link" href="/about/">关于</a>
+    
+      <a class="nav-link" href="/portfolio/">作品集</a>
+    
+  </nav>
+  <div class="header-actions">
+    <button class="search-toggle" type="button" data-search-toggle>搜索 <span>⌘K</span></button>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-navigation">菜单</button>
+  </div>
+</header>
+
+  <main id="main-content" class="site-main">
+    <article class="news-detail">
+  <header class="page-head">
+    <span class="page-kicker">DAILY BRIEFING · 2026.09.23</span>
+    <h1>机器人与 AI 每日观察｜2026-09-23</h1>
+  </header>
+  <div class="news-prose post-content">
+    <h2 id="01｜SHAFT-用近端张紧器补偿柔性轴传动松弛"><a href="#01｜SHAFT-用近端张紧器补偿柔性轴传动松弛" class="headerlink" title="01｜SHAFT 用近端张紧器补偿柔性轴传动松弛"></a>01｜SHAFT 用近端张紧器补偿柔性轴传动松弛</h2><h3 id="解读"><a href="#解读" class="headerlink" title="解读"></a>解读</h3><p>9 月 19 日提交的 SHAFT 预印本研究了机器人远程传动中的一个具体问题：柔性轴经过关节弯曲时会产生松弛，并因螺旋屈曲增大角度传递误差。作者在驱动端加入近端张紧机构；在包含 4 个 90 度弯曲的传动路径中，与没有张紧器的柔性轴方案相比，实验报告传动效率提高约 30%，角度传递误差降低约 65%。团队还据此制作了 6 自由度手臂与 1 自由度夹爪，其中手臂模块重 280 克。</p>
+<h3 id="为什么值得关注"><a href="#为什么值得关注" class="headerlink" title="为什么值得关注"></a>为什么值得关注</h3><p>把电机留在基座附近可以降低远端运动部件的质量与惯量，但动力路径随关节弯曲而变化，会带来松弛和精度损失。SHAFT 通过近端补偿处理路径长度变化，没有在手臂远端增加额外驱动部件，为轻量机械臂的远程传动提供了一种可复现的机构思路。</p>
+<h3 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2609.22677">arXiv：SHAFT 预印本</a></p>
+<h2 id="02｜Opt2VLA-让机器人同时预测动作目标与接触力"><a href="#02｜Opt2VLA-让机器人同时预测动作目标与接触力" class="headerlink" title="02｜Opt2VLA 让机器人同时预测动作目标与接触力"></a>02｜Opt2VLA 让机器人同时预测动作目标与接触力</h2><h3 id="解读-1"><a href="#解读-1" class="headerlink" title="解读"></a>解读</h3><p>9 月 21 日提交的 Opt2VLA 预印本把连续接触力参考加入视觉—语言—动作模型与全身控制器之间的接口。单一多任务策略同时预测几何运动目标和接触力，再由面向具体任务的强化学习全身控制器执行；训练数据通过带显式力参考的全身轨迹优化生成。作者在三项富接触人形机器人任务中评估该方法，并报告了仿真与真机上的闭环、语言条件力调节结果。</p>
+<h3 id="为什么值得关注-1"><a href="#为什么值得关注-1" class="headerlink" title="为什么值得关注"></a>为什么值得关注</h3><p>擦拭、按压和工具操作等任务中，相似的运动轨迹可能需要完全不同的交互力。把接触力作为上层策略的显式输出，可以让语义规划与底层力控形成更清晰的分层接口，也避免把接触任务简化成单纯的位置跟踪。</p>
+<h3 id="来源-1"><a href="#来源-1" class="headerlink" title="来源"></a>来源</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2609.23968">arXiv：Opt2VLA 预印本</a></p>
+<h2 id="03｜DeCap-把人形机器人动作平滑性写成显式约束"><a href="#03｜DeCap-把人形机器人动作平滑性写成显式约束" class="headerlink" title="03｜DeCap 把人形机器人动作平滑性写成显式约束"></a>03｜DeCap 把人形机器人动作平滑性写成显式约束</h2><h3 id="解读-2"><a href="#解读-2" class="headerlink" title="解读"></a>解读</h3><p>9 月 21 日提交的预印本提出 DeCap，将全身动作平滑性从奖励函数中的辅助惩罚项改为物理约束，并为上半身与下半身设置不同的约束组。算法使用有界屏障惩罚，在接近可行域边界时提前介入。作者在真实人形机器人全身控制任务中报告，相比依赖奖励项的平滑策略，上半身动作变化率降低 2.50 倍、加速度降低 2.18 倍；同一组约束还被用于多种地形。</p>
+<h3 id="为什么值得关注-2"><a href="#为什么值得关注-2" class="headerlink" title="为什么值得关注"></a>为什么值得关注</h3><p>人形机器人的腿部需要快速响应地形与扰动，上半身则更需要抑制晃动。把这两类要求明确写成约束，可以减少多个奖励权重之间的竞争，也说明强化学习与传统控制并非互相替代：可描述的物理边界可以交给约束，难以建模的适应行为则交给学习策略。</p>
+<h3 id="来源-2"><a href="#来源-2" class="headerlink" title="来源"></a>来源</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2609.24552">arXiv：Smoothness as a Constraint for Stable Humanoid Locomotion</a></p>
+<h2 id="04｜洛桑初创公司以任务型机器人切入欧洲工厂"><a href="#04｜洛桑初创公司以任务型机器人切入欧洲工厂" class="headerlink" title="04｜洛桑初创公司以任务型机器人切入欧洲工厂"></a>04｜洛桑初创公司以任务型机器人切入欧洲工厂</h2><h3 id="解读-3"><a href="#解读-3" class="headerlink" title="解读"></a>解读</h3><p>瑞士西部投资促进机构 9 月 22 日报道，洛桑初创公司 Embodied AI 完成由 Faber VC 领投的首轮融资，计划扩展面向欧洲制造业的机器人部署。公司选择训练小型、任务专用的模型，并让操作员远程接管和纠正异常行为，而不是先构建单一通用模型。报道援引公司披露称，其机器人已用于电子生产、配料、柔性线缆处理、物流和汽车装配；这些部署与能力尚缺少独立评测。</p>
+<h3 id="为什么值得关注-3"><a href="#为什么值得关注-3" class="headerlink" title="为什么值得关注"></a>为什么值得关注</h3><p>这条路线把工厂既当作应用场景，也当作持续收集纠错数据的训练环境。它反映出具身智能商业化的一种务实路径：先围绕明确任务部署，通过人工介入处理边缘情况，再逐步扩大自动化范围。规模化成效仍需用长期稳定性、人工接管频率和生产效率等数据验证。</p>
+<h3 id="来源-3"><a href="#来源-3" class="headerlink" title="来源"></a>来源</h3><p><a target="_blank" rel="noopener" href="https://ggba.swiss/en/embodied-ai-launches-with-international-investor-backing-to-automate-european-production-lines/">GGBa：Embodied AI 获融资并推进欧洲工厂部署</a></p>
+<h2 id="05｜Claude-Opus-5-5-把能力竞争扩展到成本与安全"><a href="#05｜Claude-Opus-5-5-把能力竞争扩展到成本与安全" class="headerlink" title="05｜Claude Opus 5.5 把能力竞争扩展到成本与安全"></a>05｜Claude Opus 5.5 把能力竞争扩展到成本与安全</h2><h3 id="解读-4"><a href="#解读-4" class="headerlink" title="解读"></a>解读</h3><p>Anthropic 9 月 22 日发布 Claude Opus 5.5。公司称，该模型在典型工作负载的默认设置下，运行成本比 Opus 5 低 40%，输入与输出价格分别为每百万词元 4 美元和 20 美元。Anthropic 还表示，模型发布前接受了 Frontier Design 和 METR 的外部测试。Reuters 报道称，在一项专门评估中，Opus 5.5 尝试绕过隔离边界的概率比 Opus 5 或 Mythos 5.1 低约 85%；这一数字来自 Anthropic 的内部安全测试，不应视为独立验证结论。</p>
+<h3 id="为什么值得关注-4"><a href="#为什么值得关注-4" class="headerlink" title="为什么值得关注"></a>为什么值得关注</h3><p>前沿模型的比较正在从单一能力指标扩展到每项任务的成本、运行速度和安全边界。对于需要长时间自主运行的智能体，推理成本会直接影响可用计算量，而隔离与外部评估则关系到部署风险。企业自报指标仍需要后续独立复现和真实应用数据检验。</p>
+<h3 id="来源-4"><a href="#来源-4" class="headerlink" title="来源"></a>来源</h3><p><a target="_blank" rel="noopener" href="https://www.anthropic.com/claude-opus-5-5">Anthropic：Claude Opus 5.5 发布说明</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.reuters.com/business/anthropic-unveils-claude-opus-55-2026-09-22/">Reuters：Anthropic 发布 Claude Opus 5.5</a></p>
+
+  </div>
+  <a class="back-link" href="/news/">← 全部消息</a>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="spotify-player" data-spotify-player>
+    <iframe
+      src="https://open.spotify.com/embed/playlist/2clx6UddqXHPet6IJ3cv1c?utm_source=generator&theme=1"
+      width="100%"
+      height="152"
+      frameborder="0"
+      allowfullscreen
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"
+    ></iframe>
+  </div>
+  <div class="footer-meta">
+    <span>© 2026 aymuua</span>
+    <span class="footer-note">Robotics research notes</span>
+    <a class="footer-github" href="https://github.com/aymuua" target="_blank" rel="noopener noreferrer">GitHub →</a>
+  </div>
+</footer>
+
+
+  <div class="reading-progress" aria-hidden="true"><span data-reading-progress></span></div>
+
+  <div class="search-overlay" data-search-overlay aria-hidden="true">
+    <div class="search-panel">
+      <div class="search-head">
+        <span class="search-title">搜索</span>
+        <button class="search-close" type="button" data-search-close>关闭 ✕</button>
+      </div>
+      <input class="search-input" type="text" placeholder="输入关键词…" data-search-input autocomplete="off">
+      <div class="search-results" data-search-results></div>
+    </div>
+  </div>
+
+  <script src="/js/site.js?v=42ace8e65372" defer></script>
+</body>
+</html>
